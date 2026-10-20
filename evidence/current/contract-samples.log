@@ -1,0 +1,5 @@
+
+> lampstage-video-workflow-handoff@0.1.0 test:samples
+> node --require ./scripts/offline-guard.cjs --import tsx scripts/check-contract-samples.ts
+
+{"fixtureCasesPassed":10,"additionalScenarioChecks":3,"networkCalls":0,"realApplicationMapping":false}

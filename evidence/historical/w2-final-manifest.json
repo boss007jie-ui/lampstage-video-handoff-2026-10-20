@@ -1,0 +1,82 @@
+{
+  "task": "LAMP-AGENT-VIDEO-W2",
+  "status": "awaiting_acceptance_frozen",
+  "tests": {
+    "pure": 38,
+    "database": 18,
+    "total": 56,
+    "failed": 0,
+    "skipped": 0,
+    "targetedStrictTypecheckExitCode": 0
+  },
+  "evidence": [
+    "w2-pure-final.log",
+    "w2-db-final.log",
+    "w2-types.log"
+  ],
+  "isolatedPostgres": {
+    "fullMigrations": true,
+    "independentClients": 2,
+    "stoppedAndCleaned": true,
+    "marker": "agent_video_runtime_postgres_stopped_and_cleaned"
+  },
+  "externalCalls": {
+    "provider": 0,
+    "objectStorage": 0,
+    "productionDatabase": 0
+  },
+  "files": [
+    {
+      "path": "apps/web/lib/video/backend-runtime/binding.ts",
+      "sha256": "1af8faa5baccc59b229fbdee5db8eb0ea8cbe8ed3b23bdaf427694b5c4bab596"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/collector.ts",
+      "sha256": "7060f40a0c96544388496aa8e255497e526fd62af03000bd3b6a0ecdd2f30a36"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "sha256": "841cefa022951fb1bf18c82f30563f9227649f4b5eff8b6280e84e09ad2e3a3a"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "sha256": "1dccf9587d3d712430c41683edad256efc79e196a9a8875b9928c9cdeab10233"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "sha256": "a5b558bb3efd63b98670e0df0c4ae515a7ecae7c5e87ca3bdde0716754ea151c"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/README.md",
+      "sha256": "e4fce659c78e01f946d924d198678a5525f2a6b41aabed84d494cf72aa572dab"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/runner.ts",
+      "sha256": "7ab9dbfecf7ee9853a21d880cf071a7999b780bd492748f6e7b330f60f3328c2"
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "sha256": "7004d0bcd8e7f54a602992ef6387797fd20d8fdfeca91fc00d919e9cbac794f4"
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-collector.test.ts",
+      "sha256": "a46f1daab239ead8b9aa6dd0177d360df0a056d19f583cb7c928ca7dddce51ba"
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-postgres.test.ts",
+      "sha256": "851faf5b19b37dda9705873ebeefb964ed46cf61aad89e601024e86e30063f18"
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-preparation.test.ts",
+      "sha256": "51b3ca3959b75c09aef5e0d7609ddfcea57add473ff2b1d73f6532edd1a0339f"
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-state.test.ts",
+      "sha256": "ce10c2bb3abbeffb13b9cc3d6fbe14a4c561519a6ff5380433067d8c4a7a0edf"
+    },
+    {
+      "path": "tasks/LAMP-AGENT-VIDEO-W2.md",
+      "sha256": "250196e13deb93e8e4c15f7fc1af7cb4ea3d945ace4a0c1dd26c92b725d4fef2"
+    }
+  ]
+}

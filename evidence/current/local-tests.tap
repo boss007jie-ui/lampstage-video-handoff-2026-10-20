@@ -1,0 +1,491 @@
+TAP version 13
+# Subtest: 新 job 选择冻结 backendId；修改默认后在途 attempt 仍使用原 backend
+ok 1 - 新 job 选择冻结 backendId；修改默认后在途 attempt 仍使用原 backend
+  ---
+  duration_ms: 0.7724
+  type: 'test'
+  ...
+# Subtest: 未知历史后端、缺失 pin 和 attempt/job 绑定冲突不能回退到默认
+ok 2 - 未知历史后端、缺失 pin 和 attempt/job 绑定冲突不能回退到默认
+  ---
+  duration_ms: 0.5802
+  type: 'test'
+  ...
+# Subtest: 配置完整但应用 mode 未验收时拒绝新任务；恢复查询不受新任务能力开关影响
+ok 3 - 配置完整但应用 mode 未验收时拒绝新任务；恢复查询不受新任务能力开关影响
+  ---
+  duration_ms: 0.3734
+  type: 'test'
+  ...
+# Subtest: 重复注册或缺失默认值返回固定安全码，不能静默替换已注册实例
+ok 4 - 重复注册或缺失默认值返回固定安全码，不能静默替换已注册实例
+  ---
+  duration_ms: 0.1828
+  type: 'test'
+  ...
+# Subtest: 请求只使用显式应用映射，ID 保持字符串且凭据仅在私有请求中
+ok 5 - 请求只使用显式应用映射，ID 保持字符串且凭据仅在私有请求中
+  ---
+  duration_ms: 1.523
+  type: 'test'
+  ...
+# Subtest: 缺少已验证映射、遗漏输入或多余节点字段均在网络前拒绝
+ok 6 - 缺少已验证映射、遗漏输入或多余节点字段均在网络前拒绝
+  ---
+  duration_ms: 0.7452
+  type: 'test'
+  ...
+# Subtest: 默认创建不读环境或联网，应用能力保持未知且未启用
+ok 7 - 默认创建不读环境或联网，应用能力保持未知且未启用
+  ---
+  duration_ms: 0.295
+  type: 'test'
+  ...
+# Subtest: 成功回执提供同一 taskId，重复调用不再次提交
+ok 8 - 成功回执提供同一 taskId，重复调用不再次提交
+  ---
+  duration_ms: 0.5749
+  type: 'test'
+  ...
+# Subtest: 门禁原子串行化并发，跨 backend 实例共享门禁仍只发起一次
+ok 9 - 门禁原子串行化并发，跨 backend 实例共享门禁仍只发起一次
+  ---
+  duration_ms: 0.4779
+  type: 'test'
+  ...
+# Subtest: 失效授权和门禁故障均不发请求，故障不能声称可重试提交
+ok 10 - 失效授权和门禁故障均不发请求，故障不能声称可重试提交
+  ---
+  duration_ms: 0.3294
+  type: 'test'
+  ...
+# Subtest: 明确业务拒绝与不明业务错误分开，HTTP 错误不能当作未提交证明
+ok 11 - 明确业务拒绝与不明业务错误分开，HTTP 错误不能当作未提交证明
+  ---
+  duration_ms: 1.292
+  type: 'test'
+  ...
+# Subtest: 断连和非法 JSON 进入 unknown，之后不能自动补发同一 intent
+ok 12 - 断连和非法 JSON 进入 unknown，之后不能自动补发同一 intent
+  ---
+  duration_ms: 0.3656
+  type: 'test'
+  ...
+# Subtest: 响应矛盾时保留已知 taskId 供核对，缺失或不安全 ID 不冒充 accepted
+ok 13 - 响应矛盾时保留已知 taskId 供核对，缺失或不安全 ID 不冒充 accepted
+  ---
+  duration_ms: 0.2618
+  type: 'test'
+  ...
+# Subtest: 拒绝码携带数值或非法非空 taskId 时保持 unknown 且不回传原始值
+ok 14 - 拒绝码携带数值或非法非空 taskId 时保持 unknown 且不回传原始值
+  ---
+  duration_ms: 6.8502
+  type: 'test'
+  ...
+# Subtest: 拒绝响应仅在 taskId 字段完全缺失时按明确未提交处理，空值字段仍保守 unknown
+ok 15 - 拒绝响应仅在 taskId 字段完全缺失时按明确未提交处理，空值字段仍保守 unknown
+  ---
+  duration_ms: 0.4177
+  type: 'test'
+  ...
+# Subtest: 已知任务的 running/queued/completed/failed 只查询 outputs 原 taskId
+ok 16 - 已知任务的 running/queued/completed/failed 只查询 outputs 原 taskId
+  ---
+  duration_ms: 1.3269
+  type: 'test'
+  ...
+# Subtest: 未知状态、空结果和未知结构不能映射 completed；不存在不代表失败或未提交
+ok 17 - 未知状态、空结果和未知结构不能映射 completed；不存在不代表失败或未提交
+  ---
+  duration_ms: 0.2023
+  type: 'test'
+  ...
+# Subtest: 只读 HTTP/网络异常有可重试分类，认证错误不自动重试
+ok 18 - 只读 HTTP/网络异常有可重试分类，认证错误不自动重试
+  ---
+  duration_ms: 0.4854
+  type: 'test'
+  ...
+# Subtest: 签名链接过期后只重新查询原任务；URL 只留私有收取结果且不推测有效期
+ok 19 - 签名链接过期后只重新查询原任务；URL 只留私有收取结果且不推测有效期
+  ---
+  duration_ms: 0.4031
+  type: 'test'
+  ...
+# Subtest: 取消不支持；跨后端 task/intent 和不合法 taskId 均不触发网络
+ok 20 - 取消不支持；跨后端 task/intent 和不合法 taskId 均不触发网络
+  ---
+  duration_ms: 0.1679
+  type: 'test'
+  ...
+# Subtest: 真实计时器超时中止 transport 信号且不重发，晚到回执不改变已返回 unknown
+ok 21 - 真实计时器超时中止 transport 信号且不重发，晚到回执不改变已返回 unknown
+  ---
+  duration_ms: 6.3011
+  type: 'test'
+  ...
+# Subtest: 成功链接反射 API key 被拒绝且不泄漏到安全投影/日志
+ok 22 - 成功链接反射 API key 被拒绝且不泄漏到安全投影/日志
+  ---
+  duration_ms: 0.2509
+  type: 'test'
+  ...
+# Subtest: 供应商 metadata/traceback/价格不会透传，恶意 URL 不成为结果
+ok 23 - 供应商 metadata/traceback/价格不会透传，恶意 URL 不成为结果
+  ---
+  duration_ms: 0.225
+  type: 'test'
+  ...
+# Subtest: 配置与授权输入在门禁等待期间冻结，调用者变更不能更改实际提交
+ok 24 - 配置与授权输入在门禁等待期间冻结，调用者变更不能更改实际提交
+  ---
+  duration_ms: 0.2583
+  type: 'test'
+  ...
+# Subtest: 数字型凭据被反射为 taskId 时也不能泄漏 accepted/unknown 回执
+ok 25 - 数字型凭据被反射为 taskId 时也不能泄漏 accepted/unknown 回执
+  ---
+  duration_ms: 0.2499
+  type: 'test'
+  ...
+# Subtest: 即使没有提升 mappingVersion，节点配置变更也使旧 attempt 不再匹配
+ok 26 - 即使没有提升 mappingVersion，节点配置变更也使旧 attempt 不再匹配
+  ---
+  duration_ms: 0.1478
+  type: 'test'
+  ...
+# Subtest: 畸形凭据不会被能力声明误报为已配置可提交
+ok 27 - 畸形凭据不会被能力声明误报为已配置可提交
+  ---
+  duration_ms: 0.1074
+  type: 'test'
+  ...
+# Subtest: collector checks real video, SHA256, stable key and durable readback
+    # Subtest: expired link recovers stored candidate without submitting or rewriting
+    ok 1 - expired link recovers stored candidate without submitting or rewriting
+      ---
+      duration_ms: 130.2853
+      type: 'test'
+      ...
+    # Subtest: different valid bytes at same key are a conflict
+    ok 2 - different valid bytes at same key are a conflict
+      ---
+      duration_ms: 288.1449
+      type: 'test'
+      ...
+    # Subtest: cross-user and tampered receipts cannot be recovered
+    ok 3 - cross-user and tampered receipts cannot be recovered
+      ---
+      duration_ms: 0.4178
+      type: 'test'
+      ...
+    1..3
+ok 28 - collector checks real video, SHA256, stable key and durable readback
+  ---
+  duration_ms: 1198.9575
+  type: 'test'
+  ...
+# Subtest: collector rejects unsafe download and damaged media with safe errors
+ok 29 - collector rejects unsafe download and damaged media with safe errors
+  ---
+  duration_ms: 94.6762
+  type: 'test'
+  ...
+# Subtest: download deadline aborts a stalled request without exposing its URL
+ok 30 - download deadline aborts a stalled request without exposing its URL
+  ---
+  duration_ms: 22.3967
+  type: 'test'
+  ...
+# Subtest: lost put response is recovered by readback; missing readback never publishes receipt
+ok 31 - lost put response is recovered by readback; missing readback never publishes receipt
+  ---
+  duration_ms: 619.9099
+  type: 'test'
+  ...
+# Subtest: collector tolerance stays within the shared 0.5 second receipt boundary
+ok 32 - collector tolerance stays within the shared 0.5 second receipt boundary
+  ---
+  duration_ms: 1.1245
+  type: 'test'
+  ...
+# Subtest: 合法准备完成状态复用真实 timeline 和参考快照；任意 review 不能绑定
+ok 33 - 合法准备完成状态复用真实 timeline 和参考快照；任意 review 不能绑定
+  ---
+  duration_ms: 2.9707
+  type: 'test'
+  ...
+# Subtest: legacy/direct 不能把伪造4加4时间线当作8秒已准备任务
+ok 34 - legacy/direct 不能把伪造4加4时间线当作8秒已准备任务
+  ---
+  duration_ms: 0.2917
+  type: 'test'
+  ...
+# Subtest: 六图未使用的默认参考不要求快照；选中依赖片段在本批失败关闭
+ok 35 - 六图未使用的默认参考不要求快照；选中依赖片段在本批失败关闭
+  ---
+  duration_ms: 0.4311
+  type: 'test'
+  ...
+# Subtest: 准备摘要固定说明/音频/窗口/引用；runtime attempt 不改变它且保留未选片段
+ok 36 - 准备摘要固定说明/音频/窗口/引用；runtime attempt 不改变它且保留未选片段
+  ---
+  duration_ms: 0.3881
+  type: 'test'
+  ...
+# Subtest: fixed mapping and consent covers backend/configuration/material/windows/coins
+ok 37 - fixed mapping and consent covers backend/configuration/material/windows/coins
+  ---
+  duration_ms: 3.2537
+  type: 'test'
+  ...
+# Subtest: binding refuses legacy history, cross-user and model-supplied fields
+ok 38 - binding refuses legacy history, cross-user and model-supplied fields
+  ---
+  duration_ms: 0.9422
+  type: 'test'
+  ...
+# Subtest: concurrent claim and gate commit exactly one intent; stale same-owner fence rejected
+ok 39 - concurrent claim and gate commit exactly one intent; stale same-owner fence rejected
+  ---
+  duration_ms: 2.5192
+  type: 'test'
+  ...
+# Subtest: gate denies expired before POST
+ok 40 - gate denies expired before POST
+  ---
+  duration_ms: 1.7202
+  type: 'test'
+  ...
+# Subtest: gate denies revoked before POST
+ok 41 - gate denies revoked before POST
+  ---
+  duration_ms: 1.3896
+  type: 'test'
+  ...
+# Subtest: gate denies revision before POST
+ok 42 - gate denies revision before POST
+  ---
+  duration_ms: 0.7443
+  type: 'test'
+  ...
+# Subtest: gate denies material before POST
+ok 43 - gate denies material before POST
+  ---
+  duration_ms: 0.8202
+  type: 'test'
+  ...
+# Subtest: gate denies configuration before POST
+ok 44 - gate denies configuration before POST
+  ---
+  duration_ms: 0.8927
+  type: 'test'
+  ...
+# Subtest: gate denies consent before POST
+ok 45 - gate denies consent before POST
+  ---
+  duration_ms: 1.0548
+  type: 'test'
+  ...
+# Subtest: gate denies cancel before POST
+ok 46 - gate denies cancel before POST
+  ---
+  duration_ms: 1.0535
+  type: 'test'
+  ...
+# Subtest: gate denies terminal-step before POST
+ok 47 - gate denies terminal-step before POST
+  ---
+  duration_ms: 0.7392
+  type: 'test'
+  ...
+# Subtest: cancel afterGate preserves original intent and recovers original task
+ok 48 - cancel afterGate preserves original intent and recovers original task
+  ---
+  duration_ms: 2.3151
+  type: 'test'
+  ...
+# Subtest: cancel afterPost preserves original intent and recovers original task
+ok 49 - cancel afterPost preserves original intent and recovers original task
+  ---
+  duration_ms: 2.0557
+  type: 'test'
+  ...
+# Subtest: unknown submission_http_unknown never resubmits
+ok 50 - unknown submission_http_unknown never resubmits
+  ---
+  duration_ms: 1.438
+  type: 'test'
+  ...
+# Subtest: unknown submission_transport_unknown never resubmits
+ok 51 - unknown submission_transport_unknown never resubmits
+  ---
+  duration_ms: 1.3403
+  type: 'test'
+  ...
+# Subtest: late approval expiry returns already_claimed and late terminal contradictions cannot rewrite settlement
+ok 52 - late approval expiry returns already_claimed and late terminal contradictions cannot rewrite settlement
+  ---
+  duration_ms: 1.6608
+  type: 'test'
+  ...
+# Subtest: definite rejection releases requested seconds; closed modes issue zero POST
+ok 53 - definite rejection releases requested seconds; closed modes issue zero POST
+  ---
+  duration_ms: 2.0189
+  type: 'test'
+  ...
+# Subtest: unknown account blocks siblings and a valid legacy lease counts toward shared cap
+ok 54 - unknown account blocks siblings and a valid legacy lease counts toward shared cap
+  ---
+  duration_ms: 2.7662
+  type: 'test'
+  ...
+# Subtest: receipt save failure stops pass; original artifact/task remains recoverable without extra POST
+ok 55 - receipt save failure stops pass; original artifact/task remains recoverable without extra POST
+  ---
+  duration_ms: 3.3755
+  type: 'test'
+  ...
+# Subtest: submission receipt failure never resends, gate persistence failure is propagated even if backend swallows it
+ok 56 - submission receipt failure never resends, gate persistence failure is propagated even if backend swallows it
+  ---
+  duration_ms: 2.2919
+  type: 'test'
+  ...
+# Subtest: cross-account receipt and corrupt persisted collected state are rejected; public outcome has no private fields
+ok 57 - cross-account receipt and corrupt persisted collected state are rejected; public outcome has no private fields
+  ---
+  duration_ms: 1.5886
+  type: 'test'
+  ...
+# Subtest: stored artifact recovery publishes receipt after crash without backend lookup or new submit
+ok 58 - stored artifact recovery publishes receipt after crash without backend lookup or new submit
+  ---
+  duration_ms: 2.2531
+  type: 'test'
+  ...
+# Subtest: missing historical configuration stops recovery without new submit or releasing unresolved permit
+ok 59 - missing historical configuration stops recovery without new submit or releasing unresolved permit
+  ---
+  duration_ms: 1.1986
+  type: 'test'
+  ...
+# Subtest: actual RunningHub adapter capabilities remain closed and runtime performs zero transport calls
+ok 60 - actual RunningHub adapter capabilities remain closed and runtime performs zero transport calls
+  ---
+  duration_ms: 1.416
+  type: 'test'
+  ...
+# Subtest: legacy intent, candidate, terminal and history evidence never receives a new attempt
+ok 61 - legacy intent, candidate, terminal and history evidence never receives a new attempt
+  ---
+  duration_ms: 0.4272
+  type: 'test'
+  ...
+# Subtest: receipt publication uses the same 0.5 second drift ceiling as collection
+ok 62 - receipt publication uses the same 0.5 second drift ceiling as collection
+  ---
+  duration_ms: 0.3004
+  type: 'test'
+  ...
+# Subtest: 单次调用保留完整提示词与顺序，不要求起态首槽或分段
+ok 63 - 单次调用保留完整提示词与顺序，不要求起态首槽或分段
+  ---
+  duration_ms: 1.052
+  type: 'test'
+  ...
+# Subtest: 同键跨用户隔离；摘要绑定顺序、角色、上限及完整提示词
+ok 64 - 同键跨用户隔离；摘要绑定顺序、角色、上限及完整提示词
+  ---
+  duration_ms: 0.33
+  type: 'test'
+  ...
+# Subtest: 单次报价必须显式配置平台积分，不能借用旧coins估值
+ok 65 - 单次报价必须显式配置平台积分，不能借用旧coins估值
+  ---
+  duration_ms: 0.1457
+  type: 'test'
+  ...
+# Subtest: 未知意图永不重投，已知回执仅查询，旧任务不进入single_call
+ok 66 - 未知意图永不重投，已知回执仅查询，旧任务不进入single_call
+  ---
+  duration_ms: 0.1333
+  type: 'test'
+  ...
+# Subtest: 零上限只是请求格式；免扣资格及零报价来自服务端账户
+ok 67 - 零上限只是请求格式；免扣资格及零报价来自服务端账户
+  ---
+  duration_ms: 0.5895
+  type: 'test'
+  ...
+# Subtest: 提交前免扣模式撤销或标准报价/上限变化均拒绝，供应商状态恢复不变
+ok 68 - 提交前免扣模式撤销或标准报价/上限变化均拒绝，供应商状态恢复不变
+  ---
+  duration_ms: 0.151
+  type: 'test'
+  ...
+# Subtest: 提交前持久化意图且成功不退平台积分
+ok 69 - 提交前持久化意图且成功不退平台积分
+  ---
+  duration_ms: 2.1173
+  type: 'test'
+  ...
+# Subtest: 已有working回执在runtime重启后恢复一次，保存原供应商任务且不重新提交
+ok 70 - 已有working回执在runtime重启后恢复一次，保存原供应商任务且不重新提交
+  ---
+  duration_ms: 0.2436
+  type: 'test'
+  ...
+# Subtest: 恢复helper缺持久供应商回执时停止，不重复恢复、不重投、不退款释放占槽
+ok 71 - 恢复helper缺持久供应商回执时停止，不重复恢复、不重投、不退款释放占槽
+  ---
+  duration_ms: 0.6147
+  type: 'test'
+  ...
+# Subtest: 终态、未知提交及新提交的working均不恢复运行时
+ok 72 - 终态、未知提交及新提交的working均不恢复运行时
+  ---
+  duration_ms: 0.3782
+  type: 'test'
+  ...
+# Subtest: 提交超时保留账本和占槽，重入绝不重投
+ok 73 - 提交超时保留账本和占槽，重入绝不重投
+  ---
+  duration_ms: 0.3052
+  type: 'test'
+  ...
+# Subtest: 已有回执仅查询不准备不submit；明确失败才退款
+ok 74 - 已有回执仅查询不准备不submit；明确失败才退款
+  ---
+  duration_ms: 0.1287
+  type: 'test'
+  ...
+# Subtest: 意图落库失败不会submit；保守保留不确定状态
+ok 75 - 意图落库失败不会submit；保守保留不确定状态
+  ---
+  duration_ms: 0.1746
+  type: 'test'
+  ...
+# Subtest: 免费准备失败退实际平台积分且不进入付费边界
+ok 76 - 免费准备失败退实际平台积分且不进入付费边界
+  ---
+  duration_ms: 0.1196
+  type: 'test'
+  ...
+# Subtest: 持久失败证据在退款中断后可恢复，不依赖供应商再次查询
+ok 77 - 持久失败证据在退款中断后可恢复，不依赖供应商再次查询
+  ---
+  duration_ms: 0.3345
+  type: 'test'
+  ...
+1..77
+# tests 80
+# suites 0
+# pass 80
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5431.2494

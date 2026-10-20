@@ -1,0 +1,1325 @@
+{
+  "scope": "apps/web/lib/video/**/*.ts; static first-party import/export closure, including type imports and relative/@ alias; no vendor or secret files",
+  "videoSourceCount": 45,
+  "firstPartyClosureCount": 84,
+  "groups": {
+    "wave1Independent": [
+      "apps/web/lib/video/backends/contracts.ts",
+      "apps/web/lib/video/backends/registry.ts",
+      "apps/web/lib/video/backends/runninghub-protocol.ts",
+      "apps/web/lib/video/backends/runninghub.ts"
+    ],
+    "wave2Runtime": [
+      "apps/web/lib/video/backend-runtime/binding.ts",
+      "apps/web/lib/video/backend-runtime/collector.ts",
+      "apps/web/lib/video/backend-runtime/preparation.ts",
+      "apps/web/lib/video/backend-runtime/preparer.ts",
+      "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "apps/web/lib/video/backend-runtime/runner.ts",
+      "apps/web/lib/video/backend-runtime/transitions.ts"
+    ],
+    "portableWithVideoTypes": [
+      "apps/web/lib/video/candidate-quality.ts",
+      "apps/web/lib/video/candidate-review-error.ts",
+      "apps/web/lib/video/candidate-review.ts",
+      "apps/web/lib/video/consent.ts",
+      "apps/web/lib/video/control.ts",
+      "apps/web/lib/video/download-stream.ts",
+      "apps/web/lib/video/draft-expiry-loop.ts",
+      "apps/web/lib/video/job-lifecycle.ts",
+      "apps/web/lib/video/lifecycle-error.ts",
+      "apps/web/lib/video/media.ts",
+      "apps/web/lib/video/review-token.ts",
+      "apps/web/lib/video/sixref-media.ts",
+      "apps/web/lib/video/upstream.ts",
+      "apps/web/lib/video/worker-loop.ts"
+    ],
+    "portableAfterFirstPartyAdapter": [
+      "apps/web/lib/video/reference-inputs.ts",
+      "apps/web/lib/video/six-reference-plan.ts",
+      "apps/web/lib/video/template-recipe.ts",
+      "apps/web/lib/video/template-contracts.ts",
+      "apps/web/lib/video/types.ts"
+    ],
+    "applicationBound": [
+      "apps/web/lib/video/asset-hash.ts",
+      "apps/web/lib/video/delivery-service.ts",
+      "apps/web/lib/video/http.ts",
+      "apps/web/lib/video/image-reference.ts",
+      "apps/web/lib/video/job-management-http.ts",
+      "apps/web/lib/video/job-quota.ts",
+      "apps/web/lib/video/permits.ts",
+      "apps/web/lib/video/processor.ts",
+      "apps/web/lib/video/projects.ts",
+      "apps/web/lib/video/repository.ts",
+      "apps/web/lib/video/sixref-processor.ts",
+      "apps/web/lib/video/storage.ts",
+      "apps/web/lib/video/template-http.ts",
+      "apps/web/lib/video/template-service.ts"
+    ],
+    "hypitCliBoundary": [
+      "apps/web/lib/video/hypit-runner.ts"
+    ]
+  },
+  "firstPartyTransitiveOutsideVideo": [
+    "apps/web/lib/agent/approvals.ts",
+    "apps/web/lib/agent/business-preparer.ts",
+    "apps/web/lib/agent/contracts.ts",
+    "apps/web/lib/agent/events.ts",
+    "apps/web/lib/agent/policy.ts",
+    "apps/web/lib/agent/prisma-settlement.ts",
+    "apps/web/lib/agent/prisma-state.ts",
+    "apps/web/lib/agent/repository-base.ts",
+    "apps/web/lib/agent/repository.ts",
+    "apps/web/lib/agent/settlement.ts",
+    "apps/web/lib/agent/state-machine.ts",
+    "apps/web/lib/api-key.ts",
+    "apps/web/lib/assets/image-content.ts",
+    "apps/web/lib/auth.ts",
+    "apps/web/lib/brand.ts",
+    "apps/web/lib/characters/bindings.ts",
+    "apps/web/lib/characters/contracts.ts",
+    "apps/web/lib/credits.ts",
+    "apps/web/lib/db.ts",
+    "apps/web/lib/email.ts",
+    "apps/web/lib/image-models.ts",
+    "apps/web/lib/image-reference-contract.ts",
+    "apps/web/lib/jobs/image-contracts.ts",
+    "apps/web/lib/jobs/image-storage-port.ts",
+    "apps/web/lib/providers/gemini-response.ts",
+    "apps/web/lib/providers/image-diagnostics.ts",
+    "apps/web/lib/providers/image-io.ts",
+    "apps/web/lib/providers/image-requests.ts",
+    "apps/web/lib/providers/nano-banana.ts",
+    "apps/web/lib/providers/openlux-images.ts",
+    "apps/web/lib/providers/provider-usage.ts",
+    "apps/web/lib/providers/types.ts",
+    "apps/web/lib/public-api.ts",
+    "apps/web/lib/s3-config.ts",
+    "apps/web/lib/storage.ts",
+    "apps/web/lib/tool-log.ts",
+    "apps/web/lib/video-calls/contract.ts",
+    "apps/web/lib/video-calls/engine.ts",
+    "apps/web/lib/video-calls/processor.ts"
+  ],
+  "firstPartyEdges": [
+    {
+      "from": "apps/web/lib/video/asset-hash.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/video/asset-hash.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "./storage"
+    },
+    {
+      "from": "apps/web/lib/video/asset-hash.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/binding.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "../../agent/policy"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/binding.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "../../agent/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/binding.ts",
+      "to": "apps/web/lib/video/backends/contracts.ts",
+      "import": "../backends/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/binding.ts",
+      "to": "apps/web/lib/video/backend-runtime/collector.ts",
+      "import": "./collector"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "../../agent/policy"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "to": "apps/web/lib/video/reference-inputs.ts",
+      "import": "../reference-inputs"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "to": "apps/web/lib/video/media.ts",
+      "import": "../media"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "../six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "../types"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "to": "apps/web/lib/video/backend-runtime/binding.ts",
+      "import": "./binding"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/agent/business-preparer.ts",
+      "import": "../../agent/business-preparer"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "../../agent/policy"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/agent/prisma-settlement.ts",
+      "import": "../../agent/prisma-settlement"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/agent/prisma-state.ts",
+      "import": "../../agent/prisma-state"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/video/backend-runtime/binding.ts",
+      "import": "./binding"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "import": "./prisma-runtime"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/jobs/image-storage-port.ts",
+      "import": "../../jobs/image-storage-port"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "to": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "import": "./preparation"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "../../agent/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/agent/business-preparer.ts",
+      "import": "../../agent/business-preparer"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/agent/prisma-state.ts",
+      "import": "../../agent/prisma-state"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/agent/prisma-settlement.ts",
+      "import": "../../agent/prisma-settlement"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "../../agent/policy"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/jobs/image-storage-port.ts",
+      "import": "../../jobs/image-storage-port"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/video/backend-runtime/binding.ts",
+      "import": "./binding"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "import": "./transitions"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "to": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "import": "./preparation"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/runner.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "../../agent/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/runner.ts",
+      "to": "apps/web/lib/video/backends/contracts.ts",
+      "import": "../backends/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/runner.ts",
+      "to": "apps/web/lib/video/backend-runtime/collector.ts",
+      "import": "./collector"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/runner.ts",
+      "to": "apps/web/lib/video/backend-runtime/binding.ts",
+      "import": "./binding"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/runner.ts",
+      "to": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "import": "./prisma-runtime"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/runner.ts",
+      "to": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "import": "./transitions"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "../../agent/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "../../agent/policy"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "to": "apps/web/lib/video/backends/contracts.ts",
+      "import": "../backends/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "to": "apps/web/lib/video/backend-runtime/binding.ts",
+      "import": "./binding"
+    },
+    {
+      "from": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "to": "apps/web/lib/video/backend-runtime/collector.ts",
+      "import": "./collector"
+    },
+    {
+      "from": "apps/web/lib/video/backends/registry.ts",
+      "to": "apps/web/lib/video/backends/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backends/runninghub-protocol.ts",
+      "to": "apps/web/lib/video/backends/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backends/runninghub.ts",
+      "to": "apps/web/lib/video/backends/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/video/backends/runninghub.ts",
+      "to": "apps/web/lib/video/backends/runninghub-protocol.ts",
+      "import": "./runninghub-protocol"
+    },
+    {
+      "from": "apps/web/lib/video/backends/runninghub.ts",
+      "to": "apps/web/lib/video/backends/runninghub-protocol.ts",
+      "import": "./runninghub-protocol"
+    },
+    {
+      "from": "apps/web/lib/video/candidate-quality.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/candidate-review-error.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/candidate-review-error.ts",
+      "to": "apps/web/lib/video/candidate-quality.ts",
+      "import": "./candidate-quality"
+    },
+    {
+      "from": "apps/web/lib/video/candidate-review.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/candidate-review.ts",
+      "to": "apps/web/lib/video/candidate-quality.ts",
+      "import": "./candidate-quality"
+    },
+    {
+      "from": "apps/web/lib/video/candidate-review.ts",
+      "to": "apps/web/lib/video/candidate-review-error.ts",
+      "import": "./candidate-review-error"
+    },
+    {
+      "from": "apps/web/lib/video/consent.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/consent.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/consent.ts",
+      "to": "apps/web/lib/video/reference-inputs.ts",
+      "import": "./reference-inputs"
+    },
+    {
+      "from": "apps/web/lib/video/delivery-service.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/delivery-service.ts",
+      "to": "apps/web/lib/characters/contracts.ts",
+      "import": "../characters/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/delivery-service.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/video/delivery-service.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/delivery-service.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "./storage"
+    },
+    {
+      "from": "apps/web/lib/video/delivery-service.ts",
+      "to": "apps/web/lib/video/template-contracts.ts",
+      "import": "./template-contracts"
+    },
+    {
+      "from": "apps/web/lib/video/draft-expiry-loop.ts",
+      "to": "apps/web/lib/video/job-quota.ts",
+      "import": "./job-quota"
+    },
+    {
+      "from": "apps/web/lib/video/draft-expiry-loop.ts",
+      "to": "apps/web/lib/video/job-lifecycle.ts",
+      "import": "./job-lifecycle"
+    },
+    {
+      "from": "apps/web/lib/video/http.ts",
+      "to": "apps/web/lib/auth.ts",
+      "import": "@/lib/auth"
+    },
+    {
+      "from": "apps/web/lib/video/http.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/video/http.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "./storage"
+    },
+    {
+      "from": "apps/web/lib/video/http.ts",
+      "to": "apps/web/lib/video/control.ts",
+      "import": "./control"
+    },
+    {
+      "from": "apps/web/lib/video/http.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/hypit-runner.ts",
+      "to": "apps/web/lib/video/control.ts",
+      "import": "./control"
+    },
+    {
+      "from": "apps/web/lib/video/image-reference.ts",
+      "to": "apps/web/lib/providers/nano-banana.ts",
+      "import": "@/lib/providers/nano-banana"
+    },
+    {
+      "from": "apps/web/lib/video/image-reference.ts",
+      "to": "apps/web/lib/video/control.ts",
+      "import": "./control"
+    },
+    {
+      "from": "apps/web/lib/video/image-reference.ts",
+      "to": "apps/web/lib/video/media.ts",
+      "import": "./media"
+    },
+    {
+      "from": "apps/web/lib/video/job-management-http.ts",
+      "to": "apps/web/lib/auth.ts",
+      "import": "../auth"
+    },
+    {
+      "from": "apps/web/lib/video/job-management-http.ts",
+      "to": "apps/web/lib/public-api.ts",
+      "import": "../public-api"
+    },
+    {
+      "from": "apps/web/lib/video/job-management-http.ts",
+      "to": "apps/web/lib/video/job-quota.ts",
+      "import": "./job-quota"
+    },
+    {
+      "from": "apps/web/lib/video/job-quota.ts",
+      "to": "apps/web/lib/video-calls/contract.ts",
+      "import": "../video-calls/contract"
+    },
+    {
+      "from": "apps/web/lib/video/job-quota.ts",
+      "to": "apps/web/lib/characters/bindings.ts",
+      "import": "../characters/bindings"
+    },
+    {
+      "from": "apps/web/lib/video/job-quota.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/video/job-quota.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/job-quota.ts",
+      "to": "apps/web/lib/video/template-recipe.ts",
+      "import": "./template-recipe"
+    },
+    {
+      "from": "apps/web/lib/video/job-quota.ts",
+      "to": "apps/web/lib/video/job-lifecycle.ts",
+      "import": "./job-lifecycle"
+    },
+    {
+      "from": "apps/web/lib/video/media.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/permits.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/permits.ts",
+      "import": "./permits"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/sixref-processor.ts",
+      "import": "./sixref-processor"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video-calls/contract.ts",
+      "import": "../video-calls/contract"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video-calls/processor.ts",
+      "import": "../video-calls/processor"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/storage.ts",
+      "import": "@/lib/storage"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/image-reference.ts",
+      "import": "./image-reference"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/hypit-runner.ts",
+      "import": "./hypit-runner"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/media.ts",
+      "import": "./media"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/control.ts",
+      "import": "./control"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/repository.ts",
+      "import": "./repository"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "./storage"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/processor.ts",
+      "to": "apps/web/lib/video/reference-inputs.ts",
+      "import": "./reference-inputs"
+    },
+    {
+      "from": "apps/web/lib/video/projects.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/video/projects.ts",
+      "to": "apps/web/lib/video/repository.ts",
+      "import": "./repository"
+    },
+    {
+      "from": "apps/web/lib/video/projects.ts",
+      "to": "apps/web/lib/video/http.ts",
+      "import": "./http"
+    },
+    {
+      "from": "apps/web/lib/video/projects.ts",
+      "to": "apps/web/lib/video-calls/contract.ts",
+      "import": "../video-calls/contract"
+    },
+    {
+      "from": "apps/web/lib/video/reference-inputs.ts",
+      "to": "apps/web/lib/characters/bindings.ts",
+      "import": "../characters/bindings"
+    },
+    {
+      "from": "apps/web/lib/video/reference-inputs.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/reference-inputs.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/video/candidate-review.ts",
+      "import": "./candidate-review"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/video/candidate-quality.ts",
+      "import": "./candidate-quality"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/video/reference-inputs.ts",
+      "import": "./reference-inputs"
+    },
+    {
+      "from": "apps/web/lib/video/repository.ts",
+      "to": "apps/web/lib/video/review-token.ts",
+      "import": "./review-token"
+    },
+    {
+      "from": "apps/web/lib/video/review-token.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/review-token.ts",
+      "to": "apps/web/lib/video/reference-inputs.ts",
+      "import": "./reference-inputs"
+    },
+    {
+      "from": "apps/web/lib/video/review-token.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/six-reference-plan.ts",
+      "to": "apps/web/lib/characters/bindings.ts",
+      "import": "../characters/bindings"
+    },
+    {
+      "from": "apps/web/lib/video/six-reference-plan.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-media.ts",
+      "to": "apps/web/lib/video/media.ts",
+      "import": "./media"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-media.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-media.ts",
+      "to": "apps/web/lib/video/candidate-quality.ts",
+      "import": "./candidate-quality"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/storage.ts",
+      "import": "@/lib/storage"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/characters/bindings.ts",
+      "import": "../characters/bindings"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/assets/image-content.ts",
+      "import": "../assets/image-content"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/control.ts",
+      "import": "./control"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/hypit-runner.ts",
+      "import": "./hypit-runner"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/media.ts",
+      "import": "./media"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/repository.ts",
+      "import": "./repository"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "./storage"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/reference-inputs.ts",
+      "import": "./reference-inputs"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/permits.ts",
+      "import": "./permits"
+    },
+    {
+      "from": "apps/web/lib/video/sixref-processor.ts",
+      "to": "apps/web/lib/video/sixref-media.ts",
+      "import": "./sixref-media"
+    },
+    {
+      "from": "apps/web/lib/video/storage.ts",
+      "to": "apps/web/lib/video/download-stream.ts",
+      "import": "./download-stream"
+    },
+    {
+      "from": "apps/web/lib/video/storage.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/storage.ts",
+      "to": "apps/web/lib/s3-config.ts",
+      "import": "../s3-config"
+    },
+    {
+      "from": "apps/web/lib/video/template-contracts.ts",
+      "to": "apps/web/lib/characters/contracts.ts",
+      "import": "../characters/contracts"
+    },
+    {
+      "from": "apps/web/lib/video/template-http.ts",
+      "to": "apps/web/lib/public-api.ts",
+      "import": "../public-api"
+    },
+    {
+      "from": "apps/web/lib/video/template-http.ts",
+      "to": "apps/web/lib/video/delivery-service.ts",
+      "import": "./delivery-service"
+    },
+    {
+      "from": "apps/web/lib/video/template-http.ts",
+      "to": "apps/web/lib/video/template-service.ts",
+      "import": "./template-service"
+    },
+    {
+      "from": "apps/web/lib/video/template-recipe.ts",
+      "to": "apps/web/lib/video/six-reference-plan.ts",
+      "import": "./six-reference-plan"
+    },
+    {
+      "from": "apps/web/lib/video/template-recipe.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/template-recipe.ts",
+      "to": "apps/web/lib/video/template-contracts.ts",
+      "import": "./template-contracts"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/characters/bindings.ts",
+      "import": "../characters/bindings"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/video/template-contracts.ts",
+      "import": "./template-contracts"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/video/template-recipe.ts",
+      "import": "./template-recipe"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/video/asset-hash.ts",
+      "import": "./asset-hash"
+    },
+    {
+      "from": "apps/web/lib/video/template-service.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "./storage"
+    },
+    {
+      "from": "apps/web/lib/video/types.ts",
+      "to": "apps/web/lib/video/candidate-quality.ts",
+      "import": "./candidate-quality"
+    },
+    {
+      "from": "apps/web/lib/video/types.ts",
+      "to": "apps/web/lib/video-calls/contract.ts",
+      "import": "../video-calls/contract"
+    },
+    {
+      "from": "apps/web/lib/video/worker-loop.ts",
+      "to": "apps/web/lib/video/processor.ts",
+      "import": "./processor"
+    },
+    {
+      "from": "apps/web/lib/agent/policy.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/policy.ts",
+      "to": "apps/web/lib/image-reference-contract.ts",
+      "import": "../image-reference-contract"
+    },
+    {
+      "from": "apps/web/lib/agent/contracts.ts",
+      "to": "apps/web/lib/image-reference-contract.ts",
+      "import": "../image-reference-contract"
+    },
+    {
+      "from": "apps/web/lib/agent/business-preparer.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-settlement.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-settlement.ts",
+      "to": "apps/web/lib/agent/business-preparer.ts",
+      "import": "./business-preparer"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-settlement.ts",
+      "to": "apps/web/lib/agent/settlement.ts",
+      "import": "./settlement"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-settlement.ts",
+      "to": "apps/web/lib/agent/prisma-state.ts",
+      "import": "./prisma-state"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-settlement.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "./policy"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-state.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-state.ts",
+      "to": "apps/web/lib/agent/business-preparer.ts",
+      "import": "./business-preparer"
+    },
+    {
+      "from": "apps/web/lib/agent/prisma-state.ts",
+      "to": "apps/web/lib/agent/repository-base.ts",
+      "import": "./repository-base"
+    },
+    {
+      "from": "apps/web/lib/jobs/image-storage-port.ts",
+      "to": "apps/web/lib/jobs/image-contracts.ts",
+      "import": "./image-contracts"
+    },
+    {
+      "from": "apps/web/lib/auth.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "./db"
+    },
+    {
+      "from": "apps/web/lib/auth.ts",
+      "to": "apps/web/lib/email.ts",
+      "import": "@/lib/email"
+    },
+    {
+      "from": "apps/web/lib/providers/nano-banana.ts",
+      "to": "apps/web/lib/providers/openlux-images.ts",
+      "import": "./openlux-images"
+    },
+    {
+      "from": "apps/web/lib/public-api.ts",
+      "to": "apps/web/lib/api-key.ts",
+      "import": "@/lib/api-key"
+    },
+    {
+      "from": "apps/web/lib/characters/bindings.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "../video/types"
+    },
+    {
+      "from": "apps/web/lib/characters/bindings.ts",
+      "to": "apps/web/lib/video/template-contracts.ts",
+      "import": "../video/template-contracts"
+    },
+    {
+      "from": "apps/web/lib/characters/bindings.ts",
+      "to": "apps/web/lib/characters/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/credits.ts",
+      "import": "../credits"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/control.ts",
+      "import": "../video/control"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/hypit-runner.ts",
+      "import": "../video/hypit-runner"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/media.ts",
+      "import": "../video/media"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/permits.ts",
+      "import": "../video/permits"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/repository.ts",
+      "import": "../video/repository"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/storage.ts",
+      "import": "../video/storage"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video/types.ts",
+      "import": "../video/types"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video-calls/contract.ts",
+      "import": "./contract"
+    },
+    {
+      "from": "apps/web/lib/video-calls/processor.ts",
+      "to": "apps/web/lib/video-calls/engine.ts",
+      "import": "./engine"
+    },
+    {
+      "from": "apps/web/lib/storage.ts",
+      "to": "apps/web/lib/s3-config.ts",
+      "import": "./s3-config"
+    },
+    {
+      "from": "apps/web/lib/assets/image-content.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "../db"
+    },
+    {
+      "from": "apps/web/lib/assets/image-content.ts",
+      "to": "apps/web/lib/storage.ts",
+      "import": "../storage"
+    },
+    {
+      "from": "apps/web/lib/image-reference-contract.ts",
+      "to": "apps/web/lib/image-models.ts",
+      "import": "./image-models"
+    },
+    {
+      "from": "apps/web/lib/agent/settlement.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/settlement.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "./policy"
+    },
+    {
+      "from": "apps/web/lib/agent/repository-base.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/repository-base.ts",
+      "to": "apps/web/lib/agent/approvals.ts",
+      "import": "./approvals"
+    },
+    {
+      "from": "apps/web/lib/agent/repository-base.ts",
+      "to": "apps/web/lib/agent/events.ts",
+      "import": "./events"
+    },
+    {
+      "from": "apps/web/lib/agent/repository-base.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "./policy"
+    },
+    {
+      "from": "apps/web/lib/agent/repository-base.ts",
+      "to": "apps/web/lib/agent/repository.ts",
+      "import": "./repository"
+    },
+    {
+      "from": "apps/web/lib/agent/repository-base.ts",
+      "to": "apps/web/lib/agent/state-machine.ts",
+      "import": "./state-machine"
+    },
+    {
+      "from": "apps/web/lib/jobs/image-contracts.ts",
+      "to": "apps/web/lib/image-models.ts",
+      "import": "../image-models"
+    },
+    {
+      "from": "apps/web/lib/jobs/image-contracts.ts",
+      "to": "apps/web/lib/image-reference-contract.ts",
+      "import": "../image-reference-contract"
+    },
+    {
+      "from": "apps/web/lib/email.ts",
+      "to": "apps/web/lib/brand.ts",
+      "import": "@/lib/brand"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/image-models.ts",
+      "import": "../image-models"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/tool-log.ts",
+      "import": "../tool-log"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/providers/gemini-response.ts",
+      "import": "./gemini-response"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/providers/image-io.ts",
+      "import": "./image-io"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/providers/image-requests.ts",
+      "import": "./image-requests"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/providers/provider-usage.ts",
+      "import": "./provider-usage"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/providers/image-diagnostics.ts",
+      "import": "./image-diagnostics"
+    },
+    {
+      "from": "apps/web/lib/providers/openlux-images.ts",
+      "to": "apps/web/lib/providers/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/api-key.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/video-calls/engine.ts",
+      "to": "apps/web/lib/video-calls/contract.ts",
+      "import": "./contract"
+    },
+    {
+      "from": "apps/web/lib/agent/approvals.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/approvals.ts",
+      "to": "apps/web/lib/agent/policy.ts",
+      "import": "./policy"
+    },
+    {
+      "from": "apps/web/lib/agent/events.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/repository.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/agent/state-machine.ts",
+      "to": "apps/web/lib/agent/contracts.ts",
+      "import": "./contracts"
+    },
+    {
+      "from": "apps/web/lib/tool-log.ts",
+      "to": "apps/web/lib/db.ts",
+      "import": "@/lib/db"
+    },
+    {
+      "from": "apps/web/lib/providers/image-io.ts",
+      "to": "apps/web/lib/storage.ts",
+      "import": "@/lib/storage"
+    },
+    {
+      "from": "apps/web/lib/providers/image-io.ts",
+      "to": "apps/web/lib/providers/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/providers/image-io.ts",
+      "to": "apps/web/lib/providers/image-requests.ts",
+      "import": "./image-requests"
+    },
+    {
+      "from": "apps/web/lib/providers/image-io.ts",
+      "to": "apps/web/lib/image-models.ts",
+      "import": "../image-models"
+    },
+    {
+      "from": "apps/web/lib/providers/image-requests.ts",
+      "to": "apps/web/lib/image-models.ts",
+      "import": "../image-models"
+    },
+    {
+      "from": "apps/web/lib/providers/provider-usage.ts",
+      "to": "apps/web/lib/providers/types.ts",
+      "import": "./types"
+    },
+    {
+      "from": "apps/web/lib/providers/types.ts",
+      "to": "apps/web/lib/providers/image-diagnostics.ts",
+      "import": "./image-diagnostics"
+    }
+  ],
+  "externalImports": [
+    "@aws-sdk/client-s3",
+    "@aws-sdk/s3-request-presigner",
+    "@prisma/client",
+    "bcryptjs",
+    "next/headers",
+    "next/server",
+    "node:child_process",
+    "node:crypto",
+    "node:fs",
+    "node:fs/promises",
+    "node:os",
+    "node:path",
+    "node:stream",
+    "node:stream/promises",
+    "resend",
+    "sharp"
+  ],
+  "lockfile": {
+    "file": "apps/web/package-lock.json",
+    "lockfileVersion": 3,
+    "selectedResolvedVersions": {
+      "@aws-sdk/client-s3": "3.1065.0",
+      "@aws-sdk/s3-request-presigner": "3.1147.0",
+      "@prisma/client": "6.19.3",
+      "prisma": "6.19.3",
+      "next": "14.2.35",
+      "sharp": "0.34.5",
+      "tsx": "4.22.4",
+      "typescript": "5.9.3",
+      "@types/node": "20.19.42",
+      "bcryptjs": "3.0.3",
+      "resend": "6.12.4"
+    }
+  },
+  "referenceFiles": [
+    "apps/web/lib/video/backends/README.md",
+    "apps/web/lib/video/backend-runtime/README.md",
+    "apps/web/package.json",
+    "apps/web/package-lock.json",
+    "apps/web/tsconfig.json",
+    "apps/web/prisma/schema.prisma",
+    "apps/web/prisma/migrations/20261007120000_video_beta/migration.sql",
+    "apps/web/prisma/migrations/20261015120000_video_permits/migration.sql",
+    "apps/web/prisma/migrations/20261015150000_video_templates_delivery/migration.sql",
+    "apps/web/prisma/migrations/20261016010000_character_library/migration.sql",
+    "apps/web/prisma/migrations/20261016160000_agent_runtime/migration.sql",
+    "apps/web/scripts/video-worker.ts",
+    "apps/web/scripts/video-preflight.ts",
+    "THIRD_PARTY_NOTICES.md",
+    "apps/web/prisma/migrations/20260610093400_init/migration.sql",
+    "apps/web/prisma/migrations/20261012120000_reconcile_schema_drift/migration.sql"
+  ],
+  "videoCalls": {
+    "strictClosure": [
+      "apps/web/lib/video-calls/contract.ts",
+      "apps/web/lib/video-calls/engine.ts",
+      "apps/web/lib/video-calls/processor.ts"
+    ],
+    "additionalApiEntrypointFiles": [
+      "apps/web/lib/video-calls/assets.ts",
+      "apps/web/lib/video-calls/service.ts",
+      "apps/web/lib/video-calls/http.ts"
+    ],
+    "all": [
+      "apps/web/lib/video-calls/contract.ts",
+      "apps/web/lib/video-calls/engine.ts",
+      "apps/web/lib/video-calls/processor.ts",
+      "apps/web/lib/video-calls/assets.ts",
+      "apps/web/lib/video-calls/service.ts",
+      "apps/web/lib/video-calls/http.ts"
+    ],
+    "portable": [
+      "apps/web/lib/video-calls/contract.ts",
+      "apps/web/lib/video-calls/engine.ts"
+    ],
+    "applicationBound": [
+      "apps/web/lib/video-calls/processor.ts",
+      "apps/web/lib/video-calls/assets.ts",
+      "apps/web/lib/video-calls/service.ts",
+      "apps/web/lib/video-calls/http.ts"
+    ]
+  },
+  "focusedNonPostgresTests": [
+    "apps/web/scripts/tests/agent-video-backend-registry.test.ts",
+    "apps/web/scripts/tests/agent-video-backend-runninghub.test.ts",
+    "apps/web/scripts/tests/agent-video-runtime-state.test.ts",
+    "apps/web/scripts/tests/agent-video-runtime-collector.test.ts",
+    "apps/web/scripts/tests/agent-video-runtime-preparation.test.ts"
+  ],
+  "minimumFocusedTestDependencies": {
+    "runtimeNpm": [
+      "tsx@4.22.4",
+      "@prisma/client@6.19.3",
+      "sharp@0.34.5"
+    ],
+    "clientGeneration": [
+      "prisma@6.19.3"
+    ],
+    "typecheck": [
+      "typescript@5.9.3",
+      "@types/node@20.19.42"
+    ],
+    "externalBinaries": [
+      "ffmpeg",
+      "ffprobe"
+    ]
+  }
+}

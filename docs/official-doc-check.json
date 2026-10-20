@@ -1,0 +1,193 @@
+[
+  {
+    "kind": "submit",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425749010",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "发起AI应用任务 - RunningHub-API",
+    "contentSha256": "3846a6cb7052e12af695d564bd3a435a56636849a9005d9da110cef7979770b5",
+    "fieldsMentioned": [
+      "webappId",
+      "nodeInfoList",
+      "nodeId",
+      "fieldName",
+      "fieldValue",
+      "taskId",
+      "workflowId",
+      "apiKey"
+    ],
+    "apiPaths": [
+      "/task/openapi/ai-app/run"
+    ],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": true,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "upload",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425749007",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "文件上传 - RunningHub-API",
+    "contentSha256": "c02886e363e8f5b3b969bed1c669fbd0c57cf795c02f1a62f9a1ef66006e52be",
+    "fieldsMentioned": [
+      "nodeInfoList",
+      "nodeId",
+      "fieldName",
+      "fieldValue",
+      "fileName",
+      "download_url"
+    ],
+    "apiPaths": [
+      "/api/v1/projects/6103976/resources/570186/image-preview",
+      "/api/v1/projects/6103976/resources/570187/image-preview",
+      "/api/v1/projects/6103976/resources/570188/image-preview",
+      "/openapi/61432ac1b3f3f5b19edcccff137d49d24a907b32ef3a737d1958e33aa91f1f44.png",
+      "/openapi/v2/media/upload/binary"
+    ],
+    "deprecatedMentioned": true,
+    "fieldNameInstructions": true,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "outputs",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425749004",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "查询任务生成结果 - RunningHub-API",
+    "contentSha256": "f4cf8c9d0afda53d1bc7a53f266979204845f94c3450bf91d69af968695b2757",
+    "fieldsMentioned": [
+      "nodeId",
+      "fileType",
+      "fileUrl",
+      "taskId",
+      "apiKey",
+      "consumeCoins"
+    ],
+    "apiPaths": [
+      "/task/openapi/outputs"
+    ],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": false,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "queryV2",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425767306",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "查询任务生成结果 V2 - RunningHub-API",
+    "contentSha256": "e098be1d0c359d75a91e5309ca662c5a08ead0a4639bb21c524aa4db7b2d6a04",
+    "fieldsMentioned": [
+      "taskId",
+      "results",
+      "outputType"
+    ],
+    "apiPaths": [
+      "/openapi/v2/query"
+    ],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": false,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "export",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425749014",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "获取工作流Json - RunningHub-API",
+    "contentSha256": "1e26b12cd5d575244576c1c742ee0e2c6059af72ace33873ff41d5f32756ef7b",
+    "fieldsMentioned": [
+      "workflowId",
+      "apiKey"
+    ],
+    "apiPaths": [
+      "/api/openapi/getJsonApiFormat"
+    ],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": false,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "cancelComfy",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425749015",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "取消ComfyUI任务 - RunningHub-API",
+    "contentSha256": "f54df1ce19ab0554c4f3d40ad8d126070a2deda2f3f7d5f63743fefe380a5229",
+    "fieldsMentioned": [
+      "taskId",
+      "apiKey"
+    ],
+    "apiPaths": [
+      "/task/openapi/cancel"
+    ],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": false,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "nodeInfo",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/doc-8287336",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "关于nodeInfoList - RunningHub-API",
+    "contentSha256": "e1557c5746515e761cf59a0a16e38b78d3b749bb2dac36d292c3d4936c9ac871",
+    "fieldsMentioned": [
+      "nodeInfoList",
+      "fieldName",
+      "fieldValue"
+    ],
+    "apiPaths": [],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": false,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "errors",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/doc-8287338",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "接口错误码说明 - RunningHub-API",
+    "contentSha256": "27d18078b22a5e24ecdd319cd7f1c885e162fc1778043bdcaac1397ed484c179",
+    "fieldsMentioned": [
+      "nodeInfoList"
+    ],
+    "apiPaths": [],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": true,
+    "applicationSpecificVerification": false
+  },
+  {
+    "kind": "apiExample",
+    "url": "https://www.runninghub.cn/runninghub-api-doc-cn/api-425749011",
+    "retrievedDate": "2026-10-20",
+    "transport": "agent-reach Jina Reader via curl",
+    "exitCode": 0,
+    "title": "获取AI应用API调用示例 - RunningHub-API",
+    "contentSha256": "bbcd01f6998f268ef1d9ee840018c95b9619ba337d841bb6d6033349f1d8becf",
+    "fieldsMentioned": [
+      "webappId",
+      "nodeInfoList",
+      "nodeId",
+      "fieldName",
+      "fieldValue",
+      "apiKey"
+    ],
+    "apiPaths": [
+      "/api/webapp/apiCallDemo",
+      "/task/openapi/ai-app/run"
+    ],
+    "deprecatedMentioned": false,
+    "fieldNameInstructions": false,
+    "applicationSpecificVerification": false
+  }
+]

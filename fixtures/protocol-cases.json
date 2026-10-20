@@ -1,0 +1,141 @@
+{
+  "realProviderData": false,
+  "cases": [
+    {
+      "name": "accepted",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "submit",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 0, \"data\": {\"taskId\": \"9000000000000000002\"}}"
+      },
+      "expected": {
+        "kind": "accepted",
+        "taskId": "9000000000000000002"
+      }
+    },
+    {
+      "name": "definite_rejection_no_task_field",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "submit",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 433}"
+      },
+      "expected": {
+        "kind": "definite_not_submitted",
+        "code": "provider_submission_rejected"
+      }
+    },
+    {
+      "name": "http_503_unknown",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "submit",
+      "response": {
+        "status": 503,
+        "body": "{\"code\": 433}"
+      },
+      "expected": {
+        "kind": "submission_unknown",
+        "code": "submission_http_unknown"
+      }
+    },
+    {
+      "name": "null_task_conflict",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "submit",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 433, \"data\": {\"taskId\": null}}"
+      },
+      "expected": {
+        "kind": "submission_unknown",
+        "code": "submission_conflict"
+      }
+    },
+    {
+      "name": "queued",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "outputs",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 813}"
+      },
+      "expected": {
+        "kind": "queued"
+      }
+    },
+    {
+      "name": "running",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "outputs",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 804}"
+      },
+      "expected": {
+        "kind": "running"
+      }
+    },
+    {
+      "name": "terminal_failed",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "outputs",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 805}"
+      },
+      "expected": {
+        "kind": "failed",
+        "code": "provider_task_failed"
+      }
+    },
+    {
+      "name": "not_found_not_not_submitted",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "outputs",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 807}"
+      },
+      "expected": {
+        "kind": "read_error",
+        "code": "provider_task_not_found",
+        "retryable": false
+      }
+    },
+    {
+      "name": "query_503",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "outputs",
+      "response": {
+        "status": 503,
+        "body": "{}"
+      },
+      "expected": {
+        "kind": "read_error",
+        "code": "provider_http_unavailable",
+        "retryable": true
+      }
+    },
+    {
+      "name": "completed",
+      "classification": "SYNTHETIC_PROTOCOL_CASE_NOT_CAPTURED",
+      "parser": "outputs",
+      "response": {
+        "status": 200,
+        "body": "{\"code\": 0, \"data\": [{\"fileUrl\": \"https://media.example.test/SIMULATED-result.mp4\", \"fileType\": \"mp4\"}]}"
+      },
+      "expected": {
+        "kind": "completed",
+        "outputs": [
+          {
+            "downloadUrl": "https://media.example.test/SIMULATED-result.mp4",
+            "mediaType": "video",
+            "expiresAt": null
+          }
+        ]
+      }
+    }
+  ]
+}

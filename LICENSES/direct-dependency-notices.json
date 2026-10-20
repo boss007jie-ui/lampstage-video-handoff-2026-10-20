@@ -1,0 +1,50 @@
+[
+  {
+    "package": "tsx",
+    "installedVersionUsedForTests": "4.22.4",
+    "license": "MIT",
+    "texts": [
+      "LICENSES/tsx--LICENSE"
+    ]
+  },
+  {
+    "package": "typescript",
+    "installedVersionUsedForTests": "5.9.3",
+    "license": "Apache-2.0",
+    "texts": [
+      "LICENSES/typescript--LICENSE.txt"
+    ]
+  },
+  {
+    "package": "@types/node",
+    "installedVersionUsedForTests": "20.19.42",
+    "license": "MIT",
+    "texts": [
+      "LICENSES/types__node--LICENSE"
+    ]
+  },
+  {
+    "package": "@prisma/client",
+    "installedVersionUsedForTests": "6.19.3",
+    "license": "Apache-2.0",
+    "texts": [
+      "LICENSES/prisma__client--LICENSE"
+    ]
+  },
+  {
+    "package": "prisma",
+    "installedVersionUsedForTests": "6.19.3",
+    "license": "Apache-2.0",
+    "texts": [
+      "LICENSES/prisma--LICENSE"
+    ]
+  },
+  {
+    "package": "sharp",
+    "installedVersionUsedForTests": "0.34.5",
+    "license": "Apache-2.0",
+    "texts": [
+      "LICENSES/sharp--LICENSE"
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "classification": "LOCAL_SIMULATION_NOT_PROVIDER_RESULT",
+  "networkRequests": 0,
+  "counters": {
+    "submit": 1,
+    "query": 1,
+    "download": 1
+  },
+  "receipt": {
+    "key": "video-candidates/v1/aa5a61e2b6ed2c868da89e428440f06add7e589336b35f006dd6b3ba90609d1b.mp4",
+    "sha256": "80b128d68527ed056226fc4d1fa6d7f92249f84e72a6462c95dbcc53f85a1bd6",
+    "sizeBytes": 2708,
+    "duration": 4,
+    "width": 144,
+    "height": 256,
+    "identityDigest": "65e88692b1a61becf71230f653e66accc50c32608e6def40adec7942a2a644ba"
+  },
+  "nextStageInput": "SIMULATED-next-stage-input.mp4",
+  "final": "SIMULATED-final.mp4",
+  "finalSha256": "ae32b3658345e27ba020c7c1a666daeaa4a4daf45cc6ceb952f8ffe81f80e8bc",
+  "media": {
+    "duration": 4,
+    "width": 720,
+    "height": 1280,
+    "hasAudio": true,
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  },
+  "productionGate": false,
+  "applicationMappingReal": false,
+  "limitation": "本例为串行文件记录示范；不是并发/跨进程事务或生产adapter。真实工作流JSON、节点/上传映射和权限仍缺失。"
+}

@@ -1,0 +1,173 @@
+{
+  "classification": "RECONSTRUCTED_REDACTED_STRUCTURES_NOT_REAL_HTTP_CAPTURES",
+  "applicationMappingReal": false,
+  "upload": {
+    "implementedByW1": false,
+    "request": {
+      "method": "POST",
+      "url": "https://www.runninghub.cn/openapi/v2/media/upload/binary",
+      "headers": {
+        "Authorization": "Bearer ${HOST_NATIVE_SECRET}"
+      },
+      "contentType": "multipart/form-data; boundary created by HTTP client",
+      "form": {
+        "file": "${AUTHORIZED_LOCAL_FILE_BYTES}"
+      }
+    },
+    "responseExample": {
+      "code": 0,
+      "message": "success",
+      "data": {
+        "fileName": "api/REDACTED.mp4",
+        "download_url": "https://upload.example.test/REDACTED.mp4",
+        "size": "12345",
+        "type": "REDACTED_PROVIDER_TYPE"
+      }
+    },
+    "failureExample": {
+      "httpStatus": 413,
+      "bodyShapeVerified": false,
+      "action": "stop/inspect; do not submit generation with missing upload reference"
+    },
+    "timeout": {
+      "response": null,
+      "uploadMayExist": true,
+      "generationWasNotSubmittedByThisExample": true,
+      "automaticUploadRetryAuthorized": false,
+      "action": "host decides bounded upload retry after checking retention/ownership/cost; no generation submit replay"
+    },
+    "mapping": "Use fileName only for verified Comfy loading nodes; download_url only where actual node/API accepts URL. Real application node mapping absent."
+  },
+  "submit": {
+    "request": {
+      "method": "POST",
+      "url": "https://www.runninghub.cn/task/openapi/ai-app/run",
+      "headers": {
+        "Authorization": "Bearer ${HOST_NATIVE_SECRET}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "apiKey": "${HOST_NATIVE_SECRET}",
+        "webappId": "${VERIFIED_REAL_APP_ID_STRING}",
+        "nodeInfoList": [
+          {
+            "nodeId": "${VERIFIED_NODE_ID_STRING}",
+            "fieldName": "${VERIFIED_FIELD_NAME}",
+            "fieldValue": "${VERIFIED_UPLOAD_OR_PARAMETER_VALUE}"
+          }
+        ]
+      }
+    },
+    "transportTimeout": {
+      "response": null,
+      "normalized": {
+        "kind": "submission_unknown",
+        "code": "submission_transport_unknown"
+      },
+      "action": "keep intent/reservation; query original taskId if saved; otherwise attention; no resubmit"
+    },
+    "supplierIdempotencyKey": null,
+    "cancelSupported": false
+  },
+  "query": {
+    "request": {
+      "method": "POST",
+      "url": "https://www.runninghub.cn/task/openapi/outputs",
+      "headers": {
+        "Authorization": "Bearer ${HOST_NATIVE_SECRET}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "apiKey": "${HOST_NATIVE_SECRET}",
+        "taskId": "${PERSISTED_ORIGINAL_TASK_ID}"
+      }
+    },
+    "v2ResponseMustNotUseThisParser": true
+  },
+  "expiredResult": {
+    "downloadResponse": {
+      "status": 403
+    },
+    "action": [
+      "collector.recover original identity",
+      "query original taskId for outputs",
+      "download only original job output if obtainable",
+      "retain recoverable/attention if no refreshed link; never generate replacement"
+    ],
+    "ttlVerified": false
+  },
+  "cancel": {
+    "noHttpRequestImplemented": true,
+    "wrapper": "cancelVideoTask",
+    "response": {
+      "kind": "unsupported",
+      "code": "cancel_unsupported"
+    },
+    "remoteRevocationOrRefundClaimed": false
+  },
+  "fees": {
+    "supplierActualCost": null,
+    "currency": null,
+    "billingImplemented": false,
+    "platformCreditsAreNotRunningHubCoins": true
+  },
+  "referenceImageStage": {
+    "classification": "SOURCE_REQUEST_STRUCTURE_ONLY_NOT_PROVIDER_CAPTURE",
+    "request": {
+      "method": "POST",
+      "url": "https://api.openlux.ai/v1beta/models/gemini-nano-banana-2.1:generateContent",
+      "headers": {
+        "Authorization": "Bearer ${HOST_NATIVE_SECRET}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "contents": [
+          {
+            "role": "user",
+            "parts": [
+              {
+                "text": "${EXACT_STAGE_PROMPT}"
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "${BASE64_SOURCE_FRAME}"
+                }
+              },
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "${BASE64_PRODUCT}"
+                }
+              }
+            ]
+          }
+        ],
+        "generationConfig": {
+          "responseModalities": [
+            "TEXT",
+            "IMAGE"
+          ]
+        }
+      }
+    },
+    "successShape": {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "inlineData": {
+                  "mimeType": "image/png",
+                  "data": "${BASE64_RESULT}"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "timeout": "source attempt becomes unknown; no task-query/cancel/idempotency API implemented; no automatic paid retry",
+    "normalization": "720x1280 PNG"
+  }
+}

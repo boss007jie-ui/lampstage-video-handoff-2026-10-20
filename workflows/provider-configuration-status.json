@@ -1,0 +1,62 @@
+{
+  "classification": "NON_RUNNABLE_MISSING_PROVIDER_CONFIGURATION",
+  "runnable": false,
+  "realWorkflowGraphIncluded": false,
+  "provider": "RunningHub",
+  "submitProtocol": "ai-app/run",
+  "queryProtocolImplemented": "legacy-outputs-v1",
+  "webappId": null,
+  "workflowIdVerified": null,
+  "readOnlyWorkflowIdConstantNotAnAppId": "2102537586127491074",
+  "mappingVersion": null,
+  "mappingEvidence": null,
+  "configurationDigest": null,
+  "bindings": null,
+  "modelVersions": null,
+  "customNodeVersions": null,
+  "referenceUploadNodeMapping": null,
+  "realAccountPermissionsVerified": false,
+  "realConcurrencyLimit": null,
+  "actualBillingMethodVerified": false,
+  "realOutputUrlTtl": null,
+  "codeEnabledModes": [],
+  "cancelImplemented": false,
+  "providerIdempotencyImplemented": false,
+  "requiredBeforeEnabling": [
+    "合法供应商完整workflow导出",
+    "实际App API调用映射",
+    "逐节点类型/必填/默认/范围",
+    "素材上传返回值到各节点的映射",
+    "接收方账户运行/导入权限",
+    "模型权重及custom node版本和许可",
+    "实际费用/配额/输出限制核对",
+    "宿主gate/恢复/私有收取适配验收"
+  ],
+  "legacyProfileConstants": {
+    "capability": "@hypit/minimax-h3@1#minimax-h3",
+    "endpoint": "runninghub.account01",
+    "providers": [
+      "hypit-provider-runninghub-product-v6",
+      "hypit-provider-runninghub-sixref"
+    ],
+    "configurationOnlyNotModelVersion": true
+  },
+  "referenceImageStage": {
+    "sourceImplemented": true,
+    "providerRoute": "OpenLux",
+    "apiVersionInSource": "v1beta",
+    "modelAliasInSource": "gemini-nano-banana-2.1",
+    "urlInSource": "https://api.openlux.ai/v1beta/models/gemini-nano-banana-2.1:generateContent",
+    "requestBuilder": "source/apps/web/lib/providers/image-requests.ts#buildNano21Request",
+    "referenceOrder": [
+      "source endpoint frame",
+      "product image"
+    ],
+    "inputRepresentation": "inlineData.mimeType+base64 data",
+    "outputNormalization": "sharp rotate/cover to 720x1280 PNG",
+    "appAndNodeIds": "not_applicable_model_HTTP_API",
+    "realModelBuildVersion": null,
+    "actualBillingVerified": false,
+    "queryOrCancelImplemented": false
+  }
+}

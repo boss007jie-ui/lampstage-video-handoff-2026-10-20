@@ -1,0 +1,43 @@
+{
+  "classification": "FIRST_PARTY_BUSINESS_DESCRIPTION_NOT_VENDOR_WORKFLOW",
+  "importableIntoRunningHub": false,
+  "logicalStageIdsAreNotVendorNodeIds": true,
+  "stages": [
+    {
+      "stage": "script",
+      "status": "not_implemented_here",
+      "owner": "receiving Harness"
+    },
+    {
+      "stage": "storyboard",
+      "status": "source_timeline_or_explicit_semantic_segments",
+      "source": "lib/video/media.ts and six-reference-plan.ts"
+    },
+    {
+      "stage": "reference_frames",
+      "status": "implemented_for_legacy_frames_only",
+      "provider": "OpenLux model HTTP",
+      "nodeIds": null
+    },
+    {
+      "stage": "video",
+      "status": "legacy_and_single_call_use_external_Hypit; W1_direct_unconfigured",
+      "provider": "RunningHub boundary",
+      "nodeIds": null
+    },
+    {
+      "stage": "voiceover",
+      "status": "not_implemented_here",
+      "note": "preserving source audio or adding silence is not TTS"
+    },
+    {
+      "stage": "candidate_review",
+      "status": "implemented_business_contract"
+    },
+    {
+      "stage": "compose",
+      "status": "local_FFmpeg_implemented_for_multisegment; single_call_does_not_compose",
+      "output": "720x1280 30fps H264/AAC"
+    }
+  ]
+}

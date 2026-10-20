@@ -1,0 +1,1283 @@
+{
+  "package": "Lampstage-video-workflow-handoff-2026-10-20",
+  "date": "2026-10-20",
+  "purpose": "headless video workflow developer handoff, not production deployment",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 113,
+      "sha256": "67e8df076ceb4337c1703159d433fdc06a62bdf684acc05e5870a9789889c17e",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/README.md",
+      "bytes": 1304,
+      "sha256": "718145d02b81c09d0558c136cd29ba17a8fe6fc8fd7f75ba98fc76686f7f038a",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/direct-dependency-notices.json",
+      "bytes": 1048,
+      "sha256": "5570ca988a72b4f26b4212e0e577eb4c63aa4372bd0440c015aa418737558452",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/prisma--LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/prisma__client--LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/sharp--LICENSE",
+      "bytes": 10273,
+      "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/tsx--LICENSE",
+      "bytes": 1088,
+      "sha256": "8dded67841a9261a622c739fb61c81785e93765de852828ceeb9403d20a74581",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/types__node--LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "category": "handoff-material"
+    },
+    {
+      "path": "LICENSES/typescript--LICENSE.txt",
+      "bytes": 9197,
+      "sha256": "a7d00bfd54525bc694b6e32f64c7ebcf5e6b7ae3657be5cc12767bce74654a47",
+      "category": "handoff-material"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5682,
+      "sha256": "f21ead4cf7c801d6abb5c840a025b71f68decde120c192ba2e0340673d0729a3",
+      "category": "handoff-material"
+    },
+    {
+      "path": "contracts/protocol-examples.json",
+      "bytes": 5275,
+      "sha256": "389217938e21b38ef92329f43d0c95f92a6750e4ba037cce2ca0809b683945bb",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/01-实际流程与接入.md",
+      "bytes": 5078,
+      "sha256": "22054e45626bf2359c49c122e8895ae61c717ea9bb986794b0563012f8928a4b",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/02-接口与参数.md",
+      "bytes": 8192,
+      "sha256": "2e4d68577c9f7c4f77d9e23ddb8613d505828f4d98f6ad23151e761a4dee47a6",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/03-Harness适配.md",
+      "bytes": 5768,
+      "sha256": "7229ce6d06461a4a466b435d3f2c78b6cd885ef77231cbb994065af36b05be73",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/04-测试与样例.md",
+      "bytes": 5929,
+      "sha256": "f8b88cdb0dd8336df07c8f2e9bc3e26f1981d0070a2aa51fbba658b8b39bc2af",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/05-缺口与验收矩阵.md",
+      "bytes": 4106,
+      "sha256": "240a9f28e2f4af8a2dd0cb6400cacde7b28c1e7e5e275bd2ea45cffd08adf531",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/dependency-audit.md",
+      "bytes": 8042,
+      "sha256": "61ac7589feb657e5a17544f5b2fcfc028b5761c0029ba4aa37138c7f1ec8caa7",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/dependency-files.json",
+      "bytes": 42215,
+      "sha256": "386338b9c0994ce43f1c79a6e943e2033135482308a1c879dd1e96c013b9c0fe",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/final-test-review.md",
+      "bytes": 5881,
+      "sha256": "ff54c4c9ef8e95b015dca9f304b644bf37f85708f1006b887eb5884b74c54eef",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/final-workflow-review.md",
+      "bytes": 6555,
+      "sha256": "69fe39ed3b6df8fc42c195b0e26688c86aa31151b534be7b80d61f23e73b7e11",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/test-audit.md",
+      "bytes": 5983,
+      "sha256": "1b4bddeddb8c16cb1752aec85353ba87bc82802f35647159d9b4b9ff4c573c56",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/test-files.json",
+      "bytes": 3135,
+      "sha256": "c77458f43afaeadc4a9bb959fda3ecb40581fe322edcd7af12f421c1c5e7f31c",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/audits/workflow-audit.md",
+      "bytes": 20203,
+      "sha256": "7a28840c346cdf53f3ec4e45ee7fe4408110d63820de0ed63269e0925db8fffc",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/official-doc-check.json",
+      "bytes": 6178,
+      "sha256": "9ca19717ffbb6aa7943e4706024283db1282e30bf35f37f7511ee1aec46424d1",
+      "category": "handoff-material"
+    },
+    {
+      "path": "docs/review-resolution.md",
+      "bytes": 507,
+      "sha256": "13e4330a247b359eb31a8837a7adabf8e68431db05a57d5c9f0b8a4264bda2d1",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/current/contract-samples.log",
+      "bytes": 256,
+      "sha256": "929d3aef232de5464f71adf9189faf36179fba9d37daf0bb3cd74b98d1967647",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/current/local-example-fresh.log",
+      "bytes": 277,
+      "sha256": "ea71b7e93fd766341e54f03fd79016baedf22f9bff76f84e62e900f3926edcfa",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/current/local-example-recovery.log",
+      "bytes": 277,
+      "sha256": "537db158dc87b2b4f20338bd97b0650489e1226657353f9bb17570350242ac86",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/current/local-tests.tap",
+      "bytes": 18124,
+      "sha256": "3cb1ec362e67131557404b639b7dbe90a87a4aa4462243c2c67f6d7af935c309",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/current/protocol-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/current/results.json",
+      "bytes": 1983,
+      "sha256": "b82cb141119f8f5f25ff22f6080dc9559b2b95b22921fac0aa562d4b805c84b1",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/historical/offline-tests.tap",
+      "bytes": 6077,
+      "sha256": "bdfd8c9e1ce9d6c7a86297c0eb93dba5f5d5fc8ae0ad9f8be3b2be11ae7a4acb",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/historical/w2-current-hash-check.json",
+      "bytes": 1585,
+      "sha256": "1d92620650f2a20d25e420a20d298405ecbb811cb0656de6e5156ead95cb85aa",
+      "category": "handoff-material"
+    },
+    {
+      "path": "evidence/historical/w2-final-manifest.json",
+      "bytes": 2814,
+      "sha256": "c49815204694c27e2c0e178c3608023f9578adaebf34a64487e08828ffa96cf7",
+      "category": "handoff-material"
+    },
+    {
+      "path": "examples/generated/SIMULATED-final.mp4",
+      "bytes": 65493,
+      "sha256": "ae32b3658345e27ba020c7c1a666daeaa4a4daf45cc6ceb952f8ffe81f80e8bc",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/SIMULATED-input.json",
+      "bytes": 464,
+      "sha256": "83695f3bc32d4b8f94d877edc332dc8e920ca2f20e3f6dcd8512c1d5d0eacd55",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/SIMULATED-journal.json",
+      "bytes": 685,
+      "sha256": "28dd573940ad0c6339f77d46db4cb01f32913708c6ee4669e3a7c88e7b7f1a64",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/SIMULATED-next-stage-input.mp4",
+      "bytes": 2708,
+      "sha256": "80b128d68527ed056226fc4d1fa6d7f92249f84e72a6462c95dbcc53f85a1bd6",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/SIMULATED-probe.mp4",
+      "bytes": 2708,
+      "sha256": "80b128d68527ed056226fc4d1fa6d7f92249f84e72a6462c95dbcc53f85a1bd6",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/SIMULATED-run-latest.json",
+      "bytes": 1078,
+      "sha256": "478857ff43dec38e69765381b50ac1c32e23df1ebd9feba662179f5ec65b5aa0",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/assets/SIMULATED-motion.mp4",
+      "bytes": 39504,
+      "sha256": "977b6dfd6d91c4c7fe651b94e991c4d0b8549f7ac6ef1e81e4a75671020ab62d",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/assets/SIMULATED-provider-candidate.mp4",
+      "bytes": 2708,
+      "sha256": "80b128d68527ed056226fc4d1fa6d7f92249f84e72a6462c95dbcc53f85a1bd6",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/assets/SIMULATED-reference.ppm",
+      "bytes": 110607,
+      "sha256": "23624de1f301e5bd14328a879d629e2150d25dbd4dab1e8141250a21317e945f",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/concat.txt",
+      "bytes": 23,
+      "sha256": "e8c2fd59c2bf3c82b9db95dc37cd630f4bed23fb1ac6f03c146436cec1edbef4",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/normalized-0.mp4",
+      "bytes": 7836,
+      "sha256": "f1fa2d84e1d98d7942ade64b985f5c66dce48b54738ac85cd54ca07ab8a4a398",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/objects/c133a9ac4759fe139c77daa0094ba909068fa5aaa472176210f3dd5652effae8.json",
+      "bytes": 3948,
+      "sha256": "a7d69f0e62f2aa3eba13b9a67f0a568f3cdbb93cc853af6214d9432a799678a0",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/generated/output.mp4",
+      "bytes": 65493,
+      "sha256": "ae32b3658345e27ba020c7c1a666daeaa4a4daf45cc6ceb952f8ffe81f80e8bc",
+      "category": "simulated-example-asset"
+    },
+    {
+      "path": "examples/local-simulated-flow.ts",
+      "bytes": 9816,
+      "sha256": "a2321ff9cbb30c1ca85ca95abdd702c71b6b94aead6896ada91ccf0dad1effe0",
+      "category": "handoff-material"
+    },
+    {
+      "path": "fixtures/protocol-cases.json",
+      "bytes": 3714,
+      "sha256": "b1f2593e0354fb8726c28883a504e81e7e4a321f028dbd0609de1e0d01e0ad8b",
+      "category": "handoff-material"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 52492,
+      "sha256": "e50f987659ce1f2dadef9d0c4ac1c6b76f1f9d7b38e5b5f68c3c47817f7d3568",
+      "category": "handoff-material"
+    },
+    {
+      "path": "package.json",
+      "bytes": 903,
+      "sha256": "8d6976b397a31e93ec351bee483c655883ddca32314bd87ad5e3d41a836d86c2",
+      "category": "handoff-material"
+    },
+    {
+      "path": "provenance/minimal-lock-packages.json",
+      "bytes": 24546,
+      "sha256": "bd75e8158450ffc931d56e0bdd96e6e4ed186ef31c7c81c68119b39eeb992455",
+      "category": "handoff-material"
+    },
+    {
+      "path": "provenance/source-manifest.json",
+      "bytes": 93660,
+      "sha256": "6b6b961ef8c2c5328dfb2c49ee0ba5d7bfd904007dadcc200526d5a3685aa0df",
+      "category": "handoff-material"
+    },
+    {
+      "path": "scripts/check-contract-samples.ts",
+      "bytes": 2602,
+      "sha256": "fd7aa2d3b57c584ef5295bac4c418a4d90f5f971b325ac07cb3f4eaad5f6c156",
+      "category": "handoff-material"
+    },
+    {
+      "path": "scripts/offline-guard.cjs",
+      "bytes": 548,
+      "sha256": "8f875c6a15a268ac47ebe60290f5ada6f08c38a33b8f018bd8c30d9bba75c809",
+      "category": "handoff-material"
+    },
+    {
+      "path": "scripts/run-example.mjs",
+      "bytes": 779,
+      "sha256": "191bdf9656432fbf959ba86237cd97a11aee03a95f37c2495dd37a9a84142bac",
+      "category": "handoff-material"
+    },
+    {
+      "path": "scripts/run-tests.mjs",
+      "bytes": 1321,
+      "sha256": "1780a167ce67e1079423c0fb10404555a0029cdd167a45b1086a56a7cb258e57",
+      "category": "handoff-material"
+    },
+    {
+      "path": "source/AGENTS.md",
+      "bytes": 5767,
+      "sha256": "8e55bbff4d5613a0459a91fa0c5ca17c6df410ca0b50b112ec563e66e3178725",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/THIRD_PARTY_NOTICES.md",
+      "bytes": 10092,
+      "sha256": "63ee3402242d414091989e2f1d55a523f064d3955704281a2fdf22b72b23b587",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/approvals.ts",
+      "bytes": 1108,
+      "sha256": "03dff6323b02738458aeaf6eb8fd8932461b1162da93769b2ec647cacb4b1939",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/business-preparer.ts",
+      "bytes": 911,
+      "sha256": "6dd067b6974d6e5246bcaad8d891a4d2b029f5d75fe9ed6a456e192ff643136a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/contracts.ts",
+      "bytes": 7277,
+      "sha256": "af2dd61bb479c47c5edada2a9e4687542e1ef77f1ece1c7bb4b55050d4c22989",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/events.ts",
+      "bytes": 534,
+      "sha256": "365ce5d98cd640de5a4f998c7dc97a44d6c64d0e8b3eb59c22ca7e065716d31e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/policy.ts",
+      "bytes": 11166,
+      "sha256": "5b600749a80a18d78ff3b964cfd7ca541b87de315980daa6a4eb52da16dd1500",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/prisma-repository.ts",
+      "bytes": 7908,
+      "sha256": "0753e9e1f684cd180896320c8838a8e177c12b4bef033901208eb88c159667c8",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/prisma-settlement.ts",
+      "bytes": 3742,
+      "sha256": "c16896cd9cef3c351853f802b5db759b5da5b9e3ac2a328df0f039de385b8c91",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/prisma-state.ts",
+      "bytes": 10179,
+      "sha256": "444b64170de8ccdad55b8441279ea8a4326aefdcd7758f6eff8ec194c86e5293",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/repository-base.ts",
+      "bytes": 25205,
+      "sha256": "ffa1c799c8258df716742c2d57ac614a5b8d2a329e6c13cf6d662f1ca82c2b3e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/repository.ts",
+      "bytes": 4386,
+      "sha256": "3288a70f788b84a3cf45a8077e1f0c291ca4ba90f5d8dc8339b5db385368dc8b",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/settlement.ts",
+      "bytes": 3524,
+      "sha256": "ae8ed18abe1799dae292f45f1f992427128384e664558ec9b1dc50fe00422c98",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/agent/state-machine.ts",
+      "bytes": 1060,
+      "sha256": "2c697144267fd1d3e4274841930e77fb44d2b0d8f0f700d3b2947ba678b46bae",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/api-key.ts",
+      "bytes": 1945,
+      "sha256": "a6839c1c010d18d63418a02e9dd1b9857dde0e9be1e2b31a0d2eb0f5057580ef",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/assets/image-content.ts",
+      "bytes": 6152,
+      "sha256": "f84fdc0072440e4df43eaca8619ffd14f76f24c42796aaab340e8ddb5ff61e71",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/auth.ts",
+      "bytes": 13301,
+      "sha256": "5bf0783f50327cf0ab0628f62eefde6f83bb24827b81953ed355984bbb0c2ef1",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/brand.ts",
+      "bytes": 31678,
+      "sha256": "26d55e573dd5ccd1ac64f90238c7e2b29e502bf8ec195be50539cef23f833e8f",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/characters/bindings.ts",
+      "bytes": 11070,
+      "sha256": "ad8163265a1799048e5c61f5fbf7b037301e74b2c4d3b043e3c8d2f0e9bf3740",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/characters/contracts.ts",
+      "bytes": 2211,
+      "sha256": "4be20a3b2d9254da04acd9812edb80289c50f1e509d3e58639e049673cb15c54",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/credits.ts",
+      "bytes": 7358,
+      "sha256": "287b17fb361edbf664be17a875b1650f283dcd727451a3d448acf7531936e00f",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/db.ts",
+      "bytes": 386,
+      "sha256": "96b8f0b6dc2e553082906e59c0782ef36a516ad21b1ccfd78180d57628839e5a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/email.ts",
+      "bytes": 3707,
+      "sha256": "e40943b54b1ba741101cffbbd9cda6d21ac6c16a030335f6343defc75aba3de4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/image-models.ts",
+      "bytes": 2270,
+      "sha256": "683287940e6e44a86f089ceab5a4795079eb7111ed8bbc08cf97a32c06089d86",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/image-reference-contract.ts",
+      "bytes": 6451,
+      "sha256": "2a77822a7f7480f4639a10ed1388fb66a313014e7dc79e999e31dd5461ea9014",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/jobs/image-contracts.ts",
+      "bytes": 7426,
+      "sha256": "a497cf07801e2cd73ff596a0ff8bb66c2d7a7c22ca84a0f8e5cffe2b5f2c4b06",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/jobs/image-storage-port.ts",
+      "bytes": 2184,
+      "sha256": "822b9778b1037e9982e98a24418977a8a874320f97cab26b67a6cfcbe4e13f42",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/gemini-response.ts",
+      "bytes": 1124,
+      "sha256": "053dc85c789f423156ede058570da1dc124d128c808986d433a49398487714c7",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/image-diagnostics.ts",
+      "bytes": 10000,
+      "sha256": "5a68f1d439982930629492724245932639eb6afc0e147612ac8c2e2c8a269678",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/image-io.ts",
+      "bytes": 4605,
+      "sha256": "8da8bcd38399060de39027a6ad6ab2b5fecbc68db8e9af1cdfeedb75b580f2ac",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/image-requests.ts",
+      "bytes": 2819,
+      "sha256": "462a1a05f465ef8475e05218d65b0e4e7358a65def9e04f122adb54c51917f46",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/nano-banana.ts",
+      "bytes": 179,
+      "sha256": "9cd82cd5f3c7e859c006feba68c3ac87c4b6ecce436d83fda752bbbae6f1402d",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/openlux-images.ts",
+      "bytes": 7895,
+      "sha256": "3b952ee3c6346e8babcbeec088e214236eaef394af1daee2bad9f1d34f26d3cb",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/provider-usage.ts",
+      "bytes": 1615,
+      "sha256": "9ceddfcb7938d7109996885861cd65994de465c47c76d3a04772110bf6a57269",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/providers/types.ts",
+      "bytes": 3259,
+      "sha256": "f3095059d1b7be8f8af51bc6615663269b833dd98a1bb68d91dbfbfeaf420115",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/public-api.ts",
+      "bytes": 633,
+      "sha256": "b53bc9109f91385d588ea9bfc79c15bc5fbc174200b2b90ac20e0ce1e8372475",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/s3-config.ts",
+      "bytes": 1040,
+      "sha256": "96d2f63c1a39dc3264748e5e33eb87c82f9bc7974000791c43ebb1f744eac199",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/storage.ts",
+      "bytes": 7320,
+      "sha256": "3f8759f859c07b1d628e1dd12c15e1d1c2f1a2115b3ac2c043db1f136ba673a4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/tool-log.ts",
+      "bytes": 2952,
+      "sha256": "cb5d596c43a20fef707fb5b829525f5677271cc84db9e622687c1f30cf4b8663",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video-calls/assets.ts",
+      "bytes": 3733,
+      "sha256": "ef62d63ac90806666b9deb2062be653f1a721c693df9ebd0aaea97a6cfbd5086",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video-calls/contract.ts",
+      "bytes": 5508,
+      "sha256": "cb7d2e1d4b97043dba44f8422ec314ef83659a08b85fd08e2626c510a306cc4d",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video-calls/engine.ts",
+      "bytes": 3495,
+      "sha256": "a11cca140d2312792b119df9a6b6f8ed74214564d692d58eca9ff2022187c6f3",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video-calls/http.ts",
+      "bytes": 1170,
+      "sha256": "62b0341a6c879c6c46919cb5deb9fbf8c842424f59b81dfbbd2eeb37bbfdc33e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video-calls/processor.ts",
+      "bytes": 8702,
+      "sha256": "918ab9a5fb10062392bf616630bac568815f1b3565b053a9fe84426529624de5",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video-calls/service.ts",
+      "bytes": 7686,
+      "sha256": "c5c2a4b9f74d1b04eb9a45001d5e8c67c43301bd97ecd52467dfa8850b217a0d",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/asset-hash.ts",
+      "bytes": 1523,
+      "sha256": "2d17981e2bacc5fdaf692144a35eecd91f770b790026b9ea421ce1d24288b3be",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/README.md",
+      "bytes": 8439,
+      "sha256": "e4fce659c78e01f946d924d198678a5525f2a6b41aabed84d494cf72aa572dab",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/binding.ts",
+      "bytes": 12447,
+      "sha256": "1af8faa5baccc59b229fbdee5db8eb0ea8cbe8ed3b23bdaf427694b5c4bab596",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/collector.ts",
+      "bytes": 11003,
+      "sha256": "7060f40a0c96544388496aa8e255497e526fd62af03000bd3b6a0ecdd2f30a36",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/preparation.ts",
+      "bytes": 4953,
+      "sha256": "841cefa022951fb1bf18c82f30563f9227649f4b5eff8b6280e84e09ad2e3a3a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/preparer.ts",
+      "bytes": 3310,
+      "sha256": "1dccf9587d3d712430c41683edad256efc79e196a9a8875b9928c9cdeab10233",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "bytes": 9114,
+      "sha256": "a5b558bb3efd63b98670e0df0c4ae515a7ecae7c5e87ca3bdde0716754ea151c",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/runner.ts",
+      "bytes": 6091,
+      "sha256": "7ab9dbfecf7ee9853a21d880cf071a7999b780bd492748f6e7b330f60f3328c2",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backend-runtime/transitions.ts",
+      "bytes": 8460,
+      "sha256": "7004d0bcd8e7f54a602992ef6387797fd20d8fdfeca91fc00d919e9cbac794f4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backends/README.md",
+      "bytes": 10444,
+      "sha256": "1f7315267d06ee6b313e921b9a517ed0f5a2c6bc3654c6a510d075d49816bf89",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backends/contracts.ts",
+      "bytes": 5330,
+      "sha256": "a59283b975f70beef2be6851c520154387bf80a978910b3d2fe053ded5c68281",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backends/registry.ts",
+      "bytes": 2865,
+      "sha256": "e7277d57f17caf0e2b3f90e6e2bd5902f7faf260e0df04cbbb7912d859ab6f58",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backends/runninghub-protocol.ts",
+      "bytes": 8505,
+      "sha256": "d961b83bce8ddeb5815005ec73e457960d785342d3e93137e65dca21bd36420e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/backends/runninghub.ts",
+      "bytes": 7657,
+      "sha256": "78944cebf9a7090a9e2742c959b05afe193cc12d68ec6cc34d91f7b40f220c75",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/candidate-quality.ts",
+      "bytes": 3719,
+      "sha256": "2c7378b9c667edd030414db80cd2dbeb0b68860872608c7b2fa610dedfa6fa24",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/candidate-review-error.ts",
+      "bytes": 4260,
+      "sha256": "5673ab699741a02a91b6ec886b9bc809c25ddb497f2ee4b0bce46640f70c7eb8",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/candidate-review.ts",
+      "bytes": 4208,
+      "sha256": "9ddbba8628ce99570698cb9ecfec80e150aac497590ed559de33ee7c2e459840",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/consent.ts",
+      "bytes": 3788,
+      "sha256": "388d1077f540768450c7f37e9ea201fa59109974db065595dc341395187ce554",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/control.ts",
+      "bytes": 3509,
+      "sha256": "bae0ea479df59905c7b1ed924db36a5707be9a8e4b141a4b81585cf5c5f72913",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/delivery-service.ts",
+      "bytes": 4621,
+      "sha256": "e80292fbb158b8c247b9667e29d7b34dc8d5db56c8ac1bfd2498008c88ee37b4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/download-stream.ts",
+      "bytes": 4162,
+      "sha256": "aac8355e73612db3405f88c29f7e2bcfcc59223aa0d524085ee6ad3d53edd193",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/draft-expiry-loop.ts",
+      "bytes": 1189,
+      "sha256": "dd542b65a8104d2498cee42cac9be83df7f4ceacbe201f7a84d34882d5e0787b",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/http.ts",
+      "bytes": 6363,
+      "sha256": "b79813894007cf4f24f49e843db7b5baac3120a180e2fd07a610ac973b044017",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/hypit-runner.ts",
+      "bytes": 30418,
+      "sha256": "fb9bf40750970ee10af4114328104c46673d5a23a345da298863bcfde6df7b17",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/image-reference.ts",
+      "bytes": 4288,
+      "sha256": "49c822e7807a2a7f78f744c577163c6845d1af59670012f885cf971270e4d448",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/job-lifecycle.ts",
+      "bytes": 10480,
+      "sha256": "f3d0a7af672178046f6cb56cd082e74b3be0323ed6c3c929ef35b0ff412fe2bb",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/job-management-http.ts",
+      "bytes": 2967,
+      "sha256": "c94e4976f22e7dcef540e226798d964585666cb521bc98a9b4824f8a3ed54c84",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/job-quota.ts",
+      "bytes": 19812,
+      "sha256": "5ffa87d81ef66d0ae5d6c105b229d9dab550a5e14c582b3db01e9d4312ebb393",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/lifecycle-error.ts",
+      "bytes": 5525,
+      "sha256": "83026057becb6a9f07dfd8733477e08a53318f3ce30be372552ad20e2bfe41ec",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/media.ts",
+      "bytes": 10045,
+      "sha256": "bee90bb2b21e1be3466a0afc5799e5f3947349a57404df3cce68bbf7479c9ee9",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/permits.ts",
+      "bytes": 12339,
+      "sha256": "6e8e4996b5725f6022fefb7bd65e5e22f6f451bf31b373e4b4fb7e95c1635f11",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/processor.ts",
+      "bytes": 26872,
+      "sha256": "585da131ed0ea682794ff3282baadc986b7a389a99e443345364f321034d3d30",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/projects.ts",
+      "bytes": 699,
+      "sha256": "e3d4aaf52ed0920445a43b79d8ddba6f3dcf0f2e14c9fdea1bf27d3dd7649d36",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/reference-inputs.ts",
+      "bytes": 7991,
+      "sha256": "2ffc073c462794dc3d352e671c39046f66b0b3e2643242a7ba642e6afcfd6fce",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/repository.ts",
+      "bytes": 8590,
+      "sha256": "66fa8643bb7a8f5f40df0744ab44e26a21a38d06252ffd2c2c477610c4201199",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/review-token.ts",
+      "bytes": 2823,
+      "sha256": "d6cf008e14a31393be73ce3296b0ac384c2beb4a874f55c5a30eddabe296a27c",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/six-reference-plan.ts",
+      "bytes": 10549,
+      "sha256": "7a3c15e3ab7b296f965f5af3f5d632f6a3e1b71b8c7d4ed57e75e629b50ab2ed",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/sixref-media.ts",
+      "bytes": 11970,
+      "sha256": "dcbf6f34cbdde516310fda1610fa196568beab3f21de5e68b959e93f7a6b4853",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/sixref-processor.ts",
+      "bytes": 21156,
+      "sha256": "d24aa5a59c72d2b0e622be521b55ccd0cfc733e1c038ba2cbad8516f78d0a1c4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/storage.ts",
+      "bytes": 11785,
+      "sha256": "505d34aeade651fad7eb690af02d90669e333c493f5a55b13d5d4ec58a3bc7d2",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/template-contracts.ts",
+      "bytes": 2714,
+      "sha256": "760f10e0f752238febe30868b17fc298bd7d73cf4805504ff6c82f3457a7eb38",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/template-http.ts",
+      "bytes": 3121,
+      "sha256": "ad4d739650ec0b7a714e7274c8e3b2d179f5dbf46135e27abe9a99e4fec3a043",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/template-recipe.ts",
+      "bytes": 4209,
+      "sha256": "73b7f656b36baa3bacade69f09e4e622a4fd967cc8c91df0c0a51b9e2a7a66a3",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/template-service.ts",
+      "bytes": 17293,
+      "sha256": "ff2fffba53b9a5a1032e8c7ee714b184d24655fa475d257a289ee42c0d8bc342",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/types.ts",
+      "bytes": 7892,
+      "sha256": "cfe9ca33d5a3a26bd1a99afe6e351debe0d1b9f979257141cbc92eae3ef39447",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/upstream.ts",
+      "bytes": 4791,
+      "sha256": "a3e254b5c31094c068a3dd5fcd93430c0cca4b97896f32d89759c15e359d6f6e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/lib/video/worker-loop.ts",
+      "bytes": 2070,
+      "sha256": "a8580950ad18f8c99570fb9a889cd7aa02229bcd2a290232c72b620e4fb482cc",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/package-lock.json",
+      "bytes": 300163,
+      "sha256": "3ca272524a25fbce5d0f430c904eac02ea58865637cf00cdca0b3692eba06866",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/package.json",
+      "bytes": 1896,
+      "sha256": "63b347a66b59ae4cd4d1e6e6936d2188c79170a3016f621e7276222722ed7aad",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20260610093400_init/migration.sql",
+      "bytes": 7243,
+      "sha256": "8dff71d7c2d626b79513bf3a5d8ab8f2ad88dd494163c7b25dd8224d379ba85a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20260610110718_add_scene_kind/migration.sql",
+      "bytes": 559,
+      "sha256": "70ef49447f909dd321392a71d318d7e9cd3c48ad7d8be841dd3e708e5711d15f",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20260611065414_add_password_hash/migration.sql",
+      "bytes": 116,
+      "sha256": "2ec950e0db66d36777823817d33d3316893a60289767df208ad3e9ef376f4dfd",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20260613012931_add_recharge_order/migration.sql",
+      "bytes": 1166,
+      "sha256": "71569e7d357949c8d9bbe98e0d40d8363e3fe5308bba7834c6c9379827250f17",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20260615044657_add_lamp_profile/migration.sql",
+      "bytes": 234,
+      "sha256": "effd6bb4e887bfca18c110bf31e0929560e6b9ae06afd44825787e9613650690",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20260615050405_add_profile_scenekind/migration.sql",
+      "bytes": 57,
+      "sha256": "506f097d5f62a0c9b0b4119df4b6ddd2bc02969e32ba9a9061340f9420b9c191",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261007120000_video_beta/migration.sql",
+      "bytes": 2258,
+      "sha256": "2e3bc0e3c2fae62f1e4ed87de579be4fb4b5d28909b807197facc0f98f585df5",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261010130000_api_keys/migration.sql",
+      "bytes": 814,
+      "sha256": "2e4e03c7a8b3302cccc619e346d2d7e9dcc012eef74b3c397b547b2520580d69",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261012120000_reconcile_schema_drift/migration.sql",
+      "bytes": 1902,
+      "sha256": "02f54ee0234e69acf730eb3e0d93bea7d8ec90b90e713ef1cb704bbf2156e199",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261015120000_video_permits/migration.sql",
+      "bytes": 4155,
+      "sha256": "7edee4ed1e14a3e68130f4f7153bc1bb4bbb7eab7d377902ccf666c73ef8a024",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261015150000_video_templates_delivery/migration.sql",
+      "bytes": 5061,
+      "sha256": "520ee4f52cad5409430d88a19b82d45485db06393f5ea9d612295c2d25ee1bd6",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261016010000_character_library/migration.sql",
+      "bytes": 6414,
+      "sha256": "4511f348a3a30c875d3fe18a1c39d4df61dc6c82451d74aa277ae9d84db507b1",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261016020000_recharge_integrity/migration.sql",
+      "bytes": 1072,
+      "sha256": "6a15c3aec52ffb08db10fa421bb3af301be085695f4ab973fd1e8cd558f22895",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261016103000_internal_test_credits/migration.sql",
+      "bytes": 181,
+      "sha256": "b1fcd3da297e88277486dd9100e8dd76036789295a209eb3a92e1f87e4484ad1",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261016160000_agent_runtime/migration.sql",
+      "bytes": 8777,
+      "sha256": "1feb0f32b62d065af64bceb841a6b70896fdb16c422beafbb5a45999331bb68b",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261016200000_agent_image_jobs/migration.sql",
+      "bytes": 9157,
+      "sha256": "0975dd3e5bbca3089b93f226613396bd4fdb85e066ea43c9b6e0a9bd6d607755",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261017120000_agent_model_ledger/migration.sql",
+      "bytes": 9221,
+      "sha256": "bfe692e4385db40ea0e0b154544646025115d5ff69b2e344e37c8a67d7ca695e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/20261017130000_desktop_auth/migration.sql",
+      "bytes": 4427,
+      "sha256": "13618e4eb772de48b2f1019d77be788a0b8be53ae384482dc2a94db12a784891",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/migrations/migration_lock.toml",
+      "bytes": 128,
+      "sha256": "99836963713b4f5b269ad49af0ed3d7b0b2e336115c2f92dc9ac683d139d0900",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/prisma/schema.prisma",
+      "bytes": 32881,
+      "sha256": "8d3888002cd68553756657af03a33d469335d98166c290f11d5f160a0a814627",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/agent-video-backend-registry.test.ts",
+      "bytes": 3770,
+      "sha256": "f5b448492965d635878a725c3adbb3693716d4554ec339f93e63635c06cdc4c9",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/agent-video-backend-runninghub.test.ts",
+      "bytes": 21250,
+      "sha256": "6aaf9d59b68bae830eb0aac29a4b4da13ecab83d4a26d434a10db21a632620a4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/agent-video-runtime-collector.test.ts",
+      "bytes": 11114,
+      "sha256": "a46f1daab239ead8b9aa6dd0177d360df0a056d19f583cb7c928ca7dddce51ba",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/agent-video-runtime-postgres.test.ts",
+      "bytes": 39616,
+      "sha256": "851faf5b19b37dda9705873ebeefb964ed46cf61aad89e601024e86e30063f18",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/agent-video-runtime-preparation.test.ts",
+      "bytes": 5967,
+      "sha256": "51b3ca3959b75c09aef5e0d7609ddfcea57add473ff2b1d73f6532edd1a0339f",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/agent-video-runtime-state.test.ts",
+      "bytes": 21845,
+      "sha256": "ce10c2bb3abbeffb13b9cc3d6fbe14a4c561519a6ff5380433067d8c4a7a0edf",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/helpers/isolated-agent-postgres.ts",
+      "bytes": 4711,
+      "sha256": "84656614f5a535e4094f7f1cef3dd02176e6231d1dfafb0b8aba47bb8b3cb529",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-call-acceptance.test.ts",
+      "bytes": 4385,
+      "sha256": "f95f31d9d3d259c4a4aff49a91c428a5a23dc2fc2a2508d331c6cd2c0447cdd6",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-call-contract.test.ts",
+      "bytes": 3517,
+      "sha256": "804fd60c5fbbba87353523e57ce30420b264c8cc018d8f7401ce461ae601eb81",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-call-engine.test.ts",
+      "bytes": 6350,
+      "sha256": "ec032beb96c2e3855d545e0115071c0bedb70eb25680c4b28da44a9784be70eb",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-call-ledger.test.ts",
+      "bytes": 3166,
+      "sha256": "136f56aef446660520dafd4fa9c576e439a36bf489224ace0ff08799dc81b69a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-call-motion.test.ts",
+      "bytes": 1258,
+      "sha256": "d45afc6b43f7c448e4dee44c40c96ad6cdd061c284a547571c055fe06690b72e",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-call-postgres.test.ts",
+      "bytes": 15574,
+      "sha256": "e606ff9567a55710c4bca16162409d253dc6ac0e932c9d367f3ec707b8e4c10f",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-candidate-quality.test.ts",
+      "bytes": 4631,
+      "sha256": "a1c8b155ecee16987c65308fe6470dae4492322364b9e84d32c4b16720a256ac",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-pipeline.test.ts",
+      "bytes": 13464,
+      "sha256": "99ec727978140b8a5d46cde18265b0710193f64664c289a9b260990657ddff36",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-sixref-plan.test.ts",
+      "bytes": 13291,
+      "sha256": "16d3087755dec6bf1b4aaed5fd285f2e0a93c10aacdc649dd3dbededb238a494",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/tests/video-upstream.test.ts",
+      "bytes": 4127,
+      "sha256": "70dcb41836d7b38e5d46c39a695c55b9dc337b5441540806bd193bd76603ab4c",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/video-preflight.ts",
+      "bytes": 5501,
+      "sha256": "de201d17ef3fef1dc8fa9a19110524395492d9df4b4f807dd3ecefd5dc8e7d00",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/video-upstream-check.ts",
+      "bytes": 4264,
+      "sha256": "aba5341910d5c437b318b17bfca8e34893554f7ce1d81c30bbdc49e410f6548c",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/scripts/video-worker.ts",
+      "bytes": 6392,
+      "sha256": "a04b24a8ac2dd1c6f8746deffc9bbfefe883f6d765f2006638aba477cecce54a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/apps/web/tsconfig.json",
+      "bytes": 598,
+      "sha256": "cff4ef2e8b2bcefaf082776a9e16f56cf553f2de0fd1267ba2eb2eba3dd47fd4",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/docs/implementation/2026-10-14-direct-reference-video.md",
+      "bytes": 8087,
+      "sha256": "8c6d76387fc4a4dcf80abafa0e66c7984a15fd62bb466140b942f0ebc406f5d8",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/docs/implementation/2026-10-15-six-reference-video.md",
+      "bytes": 6466,
+      "sha256": "61ecbfbe9eeacf1964a7aff1fd7565548d72727536bb6224ed10e0373512e40a",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/docs/implementation/2026-10-16-video-quality-stability.md",
+      "bytes": 10206,
+      "sha256": "924e5b640af3355ff8244187c560233dbccc2cd6d3018e508455daa577e88f9c",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/docs/knowledge/2026-10-16-video-route-evaluation.md",
+      "bytes": 17533,
+      "sha256": "542c4745ef6158c2c889d55817454efa0545ddaeda1f9dc9c806470834a54526",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/docs/product/2026-10-18-video-workflow-recovery-prd.md",
+      "bytes": 20193,
+      "sha256": "545ccf0899fc6dbbd04e9e49223eeeac98d495cef3f84ef957aa3a954ad38cac",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/docs/superpowers/plans/2026-10-16-lampstage-commerce-agent.md",
+      "bytes": 45478,
+      "sha256": "28513dbb14a1e616f93d82dbb9ddf07c0b23f522ff03d32203fb3e9dd45615e3",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/scripts/configure-video-runtime.ts",
+      "bytes": 3561,
+      "sha256": "cc7480ae398f7974252ff19d8157619babbde9b954601759f3128b938a36cbf9",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/tasks/2026-10-16-video-quality-stability.md",
+      "bytes": 5698,
+      "sha256": "b4f07dac6b64c191ab18daffd590e135687dce47f43ce571e09b71b88f7f82de",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/tasks/2026-10-18-video-workflow-recovery-spec.md",
+      "bytes": 53879,
+      "sha256": "4050687c09d95b3e39ad749911dba2fef41e9271e4bc106ab0f13dbed42da654",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/tasks/LAMP-AGENT-CORE-W2.md",
+      "bytes": 22430,
+      "sha256": "d939e8dc37c41d60071da2d1a0ae480e6a64258706f439b0ba77000bc8694218",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/tasks/LAMP-AGENT-VIDEO-W1.md",
+      "bytes": 13235,
+      "sha256": "431cfbf137fb8ff5513813326c541ec26c9446960837638cb7576ef789e3cb73",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/tasks/LAMP-AGENT-VIDEO-W2.md",
+      "bytes": 18617,
+      "sha256": "250196e13deb93e8e4c15f7fc1af7cb4ea3d945ace4a0c1dd26c92b725d4fef2",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "source/tasks/LAMP-C31.md",
+      "bytes": 13099,
+      "sha256": "75afeeabb46d1e973a9fcab81c039fe15196aa67d6fcb69676d9e043bded3f01",
+      "category": "original-source-and-spec"
+    },
+    {
+      "path": "tsconfig.protocol.json",
+      "bytes": 285,
+      "sha256": "eeab72a7f0b4bc67aaa1faeb4b57920bca58a5d08c49960358933a2ac12ce9ac",
+      "category": "handoff-material"
+    },
+    {
+      "path": "workflows/business-flow.json",
+      "bytes": 1273,
+      "sha256": "799f55e17e88e2015306410ff210c6bf9a07d46349e5f4ff0fe278adee2b83e7",
+      "category": "handoff-material"
+    },
+    {
+      "path": "workflows/provider-configuration-status.json",
+      "bytes": 2281,
+      "sha256": "2535236fef4e3236f0b16fcda7ffef169c6249c0bbefa8ade03e0cb9aceaab0e",
+      "category": "handoff-material"
+    }
+  ],
+  "sourceFiles": 148,
+  "sourceHeadCommit": "d1200f16d35816ef2e5a5eef42f221d1586898c4",
+  "workingTreeSnapshot": true,
+  "realVendorWorkflowIncluded": false,
+  "realGenerationReproducible": false,
+  "simulatedMediaOnly": true,
+  "testTotal": 80,
+  "contractSampleCases": 10,
+  "additionalScenarioChecks": 3,
+  "macOSTested": false,
+  "cleanInstallTested": false,
+  "sensitivePatternScan": {
+    "unresolved": 0,
+    "identifiedSyntheticNegativeFixtures": [
+      {
+        "path": "source/apps/web/scripts/tests/agent-video-backend-runninghub.test.ts",
+        "kind": "credential-url",
+        "classification": "reserved_example.test_negative_URL_validation_fixture"
+      }
+    ]
+  },
+  "excludedTemporaryDirectories": [
+    "examples/local-runs"
+  ],
+  "metadataSelfHashExcluded": [
+    "FILE-MANIFEST.json",
+    "FILE-MANIFEST.csv"
+  ]
+}

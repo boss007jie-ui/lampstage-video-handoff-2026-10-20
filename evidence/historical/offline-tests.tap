@@ -1,0 +1,160 @@
+TAP version 13
+# Subtest: 新 job 选择冻结 backendId；修改默认后在途 attempt 仍使用原 backend
+ok 1 - 新 job 选择冻结 backendId；修改默认后在途 attempt 仍使用原 backend
+  ---
+  duration_ms: 0.999
+  type: 'test'
+  ...
+# Subtest: 未知历史后端、缺失 pin 和 attempt/job 绑定冲突不能回退到默认
+ok 2 - 未知历史后端、缺失 pin 和 attempt/job 绑定冲突不能回退到默认
+  ---
+  duration_ms: 0.6944
+  type: 'test'
+  ...
+# Subtest: 配置完整但应用 mode 未验收时拒绝新任务；恢复查询不受新任务能力开关影响
+ok 3 - 配置完整但应用 mode 未验收时拒绝新任务；恢复查询不受新任务能力开关影响
+  ---
+  duration_ms: 0.4684
+  type: 'test'
+  ...
+# Subtest: 重复注册或缺失默认值返回固定安全码，不能静默替换已注册实例
+ok 4 - 重复注册或缺失默认值返回固定安全码，不能静默替换已注册实例
+  ---
+  duration_ms: 0.2339
+  type: 'test'
+  ...
+# Subtest: 请求只使用显式应用映射，ID 保持字符串且凭据仅在私有请求中
+ok 5 - 请求只使用显式应用映射，ID 保持字符串且凭据仅在私有请求中
+  ---
+  duration_ms: 1.9365
+  type: 'test'
+  ...
+# Subtest: 缺少已验证映射、遗漏输入或多余节点字段均在网络前拒绝
+ok 6 - 缺少已验证映射、遗漏输入或多余节点字段均在网络前拒绝
+  ---
+  duration_ms: 0.7075
+  type: 'test'
+  ...
+# Subtest: 默认创建不读环境或联网，应用能力保持未知且未启用
+ok 7 - 默认创建不读环境或联网，应用能力保持未知且未启用
+  ---
+  duration_ms: 0.3885
+  type: 'test'
+  ...
+# Subtest: 成功回执提供同一 taskId，重复调用不再次提交
+ok 8 - 成功回执提供同一 taskId，重复调用不再次提交
+  ---
+  duration_ms: 0.5959
+  type: 'test'
+  ...
+# Subtest: 门禁原子串行化并发，跨 backend 实例共享门禁仍只发起一次
+ok 9 - 门禁原子串行化并发，跨 backend 实例共享门禁仍只发起一次
+  ---
+  duration_ms: 0.5271
+  type: 'test'
+  ...
+# Subtest: 失效授权和门禁故障均不发请求，故障不能声称可重试提交
+ok 10 - 失效授权和门禁故障均不发请求，故障不能声称可重试提交
+  ---
+  duration_ms: 0.3264
+  type: 'test'
+  ...
+# Subtest: 明确业务拒绝与不明业务错误分开，HTTP 错误不能当作未提交证明
+ok 11 - 明确业务拒绝与不明业务错误分开，HTTP 错误不能当作未提交证明
+  ---
+  duration_ms: 1.5888
+  type: 'test'
+  ...
+# Subtest: 断连和非法 JSON 进入 unknown，之后不能自动补发同一 intent
+ok 12 - 断连和非法 JSON 进入 unknown，之后不能自动补发同一 intent
+  ---
+  duration_ms: 1.1809
+  type: 'test'
+  ...
+# Subtest: 响应矛盾时保留已知 taskId 供核对，缺失或不安全 ID 不冒充 accepted
+ok 13 - 响应矛盾时保留已知 taskId 供核对，缺失或不安全 ID 不冒充 accepted
+  ---
+  duration_ms: 0.3381
+  type: 'test'
+  ...
+# Subtest: 已知任务的 running/queued/completed/failed 只查询 outputs 原 taskId
+ok 14 - 已知任务的 running/queued/completed/failed 只查询 outputs 原 taskId
+  ---
+  duration_ms: 0.9314
+  type: 'test'
+  ...
+# Subtest: 未知状态、空结果和未知结构不能映射 completed；不存在不代表失败或未提交
+ok 15 - 未知状态、空结果和未知结构不能映射 completed；不存在不代表失败或未提交
+  ---
+  duration_ms: 0.2135
+  type: 'test'
+  ...
+# Subtest: 只读 HTTP/网络异常有可重试分类，认证错误不自动重试
+ok 16 - 只读 HTTP/网络异常有可重试分类，认证错误不自动重试
+  ---
+  duration_ms: 0.4768
+  type: 'test'
+  ...
+# Subtest: 签名链接过期后只重新查询原任务；URL 只留私有收取结果且不推测有效期
+ok 17 - 签名链接过期后只重新查询原任务；URL 只留私有收取结果且不推测有效期
+  ---
+  duration_ms: 0.4823
+  type: 'test'
+  ...
+# Subtest: 取消不支持；跨后端 task/intent 和不合法 taskId 均不触发网络
+ok 18 - 取消不支持；跨后端 task/intent 和不合法 taskId 均不触发网络
+  ---
+  duration_ms: 0.1961
+  type: 'test'
+  ...
+# Subtest: 真实计时器超时中止 transport 信号且不重发，晚到回执不改变已返回 unknown
+ok 19 - 真实计时器超时中止 transport 信号且不重发，晚到回执不改变已返回 unknown
+  ---
+  duration_ms: 5.3879
+  type: 'test'
+  ...
+# Subtest: 成功链接反射 API key 被拒绝且不泄漏到安全投影/日志
+ok 20 - 成功链接反射 API key 被拒绝且不泄漏到安全投影/日志
+  ---
+  duration_ms: 0.473
+  type: 'test'
+  ...
+# Subtest: 供应商 metadata/traceback/价格不会透传，恶意 URL 不成为结果
+ok 21 - 供应商 metadata/traceback/价格不会透传，恶意 URL 不成为结果
+  ---
+  duration_ms: 0.2986
+  type: 'test'
+  ...
+# Subtest: 配置与授权输入在门禁等待期间冻结，调用者变更不能更改实际提交
+ok 22 - 配置与授权输入在门禁等待期间冻结，调用者变更不能更改实际提交
+  ---
+  duration_ms: 0.4729
+  type: 'test'
+  ...
+# Subtest: 数字型凭据被反射为 taskId 时也不能泄漏 accepted/unknown 回执
+ok 23 - 数字型凭据被反射为 taskId 时也不能泄漏 accepted/unknown 回执
+  ---
+  duration_ms: 0.3935
+  type: 'test'
+  ...
+# Subtest: 即使没有提升 mappingVersion，节点配置变更也使旧 attempt 不再匹配
+ok 24 - 即使没有提升 mappingVersion，节点配置变更也使旧 attempt 不再匹配
+  ---
+  duration_ms: 0.2103
+  type: 'test'
+  ...
+# Subtest: 畸形凭据不会被能力声明误报为已配置可提交
+ok 25 - 畸形凭据不会被能力声明误报为已配置可提交
+  ---
+  duration_ms: 0.1642
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 511.1798

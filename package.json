@@ -1,0 +1,28 @@
+{
+  "name": "lampstage-video-workflow-handoff",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.20.0 <23 || >=24.0.0"
+  },
+  "scripts": {
+    "test": "node scripts/run-tests.mjs core",
+    "test:media": "node scripts/run-tests.mjs media",
+    "test:all-local": "node scripts/run-tests.mjs all",
+    "test:samples": "node --require ./scripts/offline-guard.cjs --import tsx scripts/check-contract-samples.ts",
+    "example:local": "node scripts/run-example.mjs",
+    "client:generate": "prisma generate --schema source/apps/web/prisma/schema.prisma",
+    "typecheck:protocol": "tsc -p tsconfig.protocol.json"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "sharp": "0.34.5",
+    "tsx": "4.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.42",
+    "prisma": "6.19.3",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,995 @@
+// Prisma schema for 灯境 AI MVP
+// 与 PRD v3 第 9 节数据结构对齐
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum BackgroundType {
+  transparent
+  white
+  simple
+  complex
+  unknown
+}
+
+enum PlatformStyle {
+  domestic_ecommerce
+  brand_site
+}
+
+enum AspectRatio {
+  ratio_1_1
+  ratio_4_5
+  ratio_16_9
+}
+
+enum SceneKind {
+  recommended
+  template
+  custom
+  profile
+}
+
+enum JobStatus {
+  created
+  uploading
+  generating
+  completed
+  failed
+}
+
+enum CreditTxType {
+  grant
+  consume
+  refund
+  manual_adjustment
+}
+
+model User {
+  id             String   @id @default(cuid())
+  name           String?
+  email          String?  @unique
+  phone          String?  @unique
+  password_hash  String?
+  email_verified DateTime?
+  credit_balance Int      @default(0)
+  credits_unlimited Boolean @default(false)
+  role           Role     @default(USER)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  uploaded_assets UploadedAsset[]
+  jobs            GenerationJob[]
+  credit_txs      CreditTransaction[]
+  contact_leads   ContactLead[]
+  sessions        Session[]
+  recharge_orders RechargeOrder[]
+  video_assets    VideoAsset[]
+  video_jobs      VideoJob[]
+  video_templates VideoTemplate[]
+  video_feedback  VideoJobFeedback[]
+  api_keys        ApiKey[]
+  image_contents ImageContent[]
+  characters CharacterProfile[]
+  character_receipts CharacterSaveReceipt[]
+  agent_threads AgentThread[]
+  desktop_auth_codes DesktopAuthCode[]
+  desktop_auth_families DesktopAuthFamily[]
+}
+
+// 桌面授权只保存摘要，毫秒时间与D2协议一致。
+model DesktopAuthCode {
+  hash String @id @db.Char(64)
+  accountId String
+  redirectUri String
+  challenge String @db.VarChar(43)
+  scopes String[]
+  deviceLabel String?
+  expiresAt BigInt
+  consumedFamilyId String?
+  account User @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  consumedFamily DesktopAuthFamily? @relation(fields: [consumedFamilyId], references: [id], onDelete: Cascade)
+  @@index([accountId, expiresAt])
+  @@index([expiresAt])
+  @@index([consumedFamilyId])
+}
+
+model DesktopAuthFamily {
+  id String @id
+  accountId String
+  scopes String[]
+  deviceLabel String?
+  createdAt BigInt
+  expiresAt BigInt
+  idleExpiresAt BigInt
+  generation Int
+  revokedAt BigInt?
+  account User @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  codes DesktopAuthCode[]
+  refreshTokens DesktopAuthRefresh[]
+  accessTokens DesktopAuthAccess[]
+  @@index([accountId, expiresAt])
+  @@index([expiresAt])
+}
+
+model DesktopAuthRefresh {
+  hash String @id @db.Char(64)
+  familyId String
+  generation Int
+  used Boolean
+  family DesktopAuthFamily @relation(fields: [familyId], references: [id], onDelete: Cascade)
+  @@index([familyId])
+}
+
+model DesktopAuthAccess {
+  hash String @id @db.Char(64)
+  familyId String
+  generation Int
+  expiresAt BigInt
+  family DesktopAuthFamily @relation(fields: [familyId], references: [id], onDelete: Cascade)
+  @@index([familyId])
+  @@index([expiresAt])
+}
+
+/// API credentials for WorkBuddy and other server-side integrations.
+/// Only the SHA-256 digest is stored; the full token is returned once on creation.
+model ApiKey {
+  id           String    @id @default(cuid())
+  user_id      String
+  name         String    @default("WorkBuddy")
+  key_prefix   String
+  key_hash     String    @unique
+  created_at   DateTime  @default(now())
+  last_used_at DateTime?
+  revoked_at   DateTime?
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, created_at])
+  @@index([user_id, revoked_at])
+}
+
+model Session {
+  id         String   @id @default(cuid())
+  user_id    String
+  expires_at DateTime
+  created_at DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id])
+  @@index([expires_at])
+}
+
+model UploadedAsset {
+  id              String         @id @default(cuid())
+  user_id         String
+  image_url       String
+  image_content_id String?
+  image_content ImageContent? @relation(fields: [image_content_id], references: [id], onDelete: Restrict)
+  character_images CharacterVersionImage[]
+  file_type       String
+  width           Int
+  height          Int
+  background_type BackgroundType @default(unknown)
+  detected_lamp_type String?
+  quality_warning String?
+  /// 灯具档案 V1: AI 推断 + 用户确认
+  size_class       String?
+  size_hint_cm     Int?
+  shade_diameter_cm      Int?
+  fixture_height_cm      Int?
+  cord_or_chain_drop_cm  Int?
+  scale_band             String?
+  color_temp       String?
+  target_audience  String?
+  material_keywords String?   // comma-separated, e.g. "rattan,flat disc,black chain"
+  space_fit        String?   // comma-separated SPACE_POOL keys, ranked, e.g. "dining_room,living_room,entryway"
+  ai_inferred_at   DateTime?
+  /// 预生成的图生图提示词计划（PromptPlan JSON）。由 /api/generation/plan 在点生成时按当前产品卡现写并存入，
+  /// 生成接口直接读取，避免 planner 同步跑挤占 60s 预算。改产品卡会重新生成，不存在过期。
+  planned_shots    Json?
+  planned_at       DateTime?
+  created_at      DateTime       @default(now())
+
+  user User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  jobs GenerationJob[]
+
+  @@index([image_content_id])
+  @@index([user_id, created_at])
+}
+
+model SceneSeed {
+  id              String   @id @default(cuid())
+  scene_type      String
+  target_audience String
+  time_of_day     String
+  image_url       String
+  quality_score   Int      @default(0)
+  usage_count     Int      @default(0)
+  source          String   @default("seed")
+  is_qualified    Boolean  @default(false)
+  created_at      DateTime @default(now())
+  last_used_at    DateTime?
+
+  @@index([scene_type, target_audience, time_of_day, quality_score])
+  @@index([is_qualified, usage_count])
+}
+
+model Template {
+  id                String   @id @default(cuid())
+  name              String
+  category          String
+  lamp_type         String
+  scene_space       String
+  preview_image_url String
+  prompt_template   String
+  is_active         Boolean  @default(true)
+  sort_order        Int      @default(0)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+
+  jobs GenerationJob[]
+
+  @@index([is_active, sort_order])
+}
+
+model GenerationJob {
+  id                String        @id @default(cuid())
+  user_id           String
+  uploaded_asset_id String
+  template_id       String?
+  scene_kind        SceneKind     @default(template)
+  prompt_text       String?
+  platform_style    PlatformStyle
+  aspect_ratio      AspectRatio
+  credit_cost       Int           @default(4)
+  status            JobStatus     @default(created)
+  failure_reason    String?
+  provider_job_id   String?
+  stage_hint        String?
+  metadata          Json?
+  created_at        DateTime      @default(now())
+  updated_at        DateTime      @updatedAt
+
+  user           User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  uploaded_asset UploadedAsset @relation(fields: [uploaded_asset_id], references: [id])
+  template       Template?     @relation(fields: [template_id], references: [id])
+
+  outputs    OutputImage[]
+  credit_txs CreditTransaction[]
+  agent_image_job AgentImageJob?
+
+  @@unique([id, user_id])
+  @@index([user_id, created_at])
+  @@index([status, created_at])
+}
+
+model OutputImage {
+  id            String    @id @default(cuid())
+  job_id        String
+  image_url     String
+  thumbnail_url String?
+  quality_score Float?
+  is_downloaded Boolean   @default(false)
+  downloaded_at DateTime?
+  created_at    DateTime  @default(now())
+
+  job GenerationJob @relation(fields: [job_id], references: [id], onDelete: Cascade)
+  agent_image_slot AgentImageSlot?
+
+  @@unique([id, job_id])
+  @@index([job_id])
+}
+
+model CreditTransaction {
+  id             String       @id @default(cuid())
+  user_id        String
+  type           CreditTxType
+  amount         Int
+  related_job_id String?
+  note           String?
+  created_at     DateTime     @default(now())
+
+  user User           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  job  GenerationJob? @relation(fields: [related_job_id], references: [id])
+  recharge_order RechargeOrder? @relation("RechargeCredit")
+
+  @@index([user_id, created_at])
+}
+
+model ContactLead {
+  id           String   @id @default(cuid())
+  user_id      String?
+  source       String
+  contact_type String
+  name         String?
+  phone        String?
+  wechat       String?
+  email        String?
+  message      String?
+  created_at   DateTime @default(now())
+
+  user User? @relation(fields: [user_id], references: [id], onDelete: SetNull)
+
+  @@index([source, created_at])
+  @@index([contact_type, created_at])
+}
+
+model VerificationCode {
+  id         String   @id @default(cuid())
+  identifier String
+  code_hash  String
+  type       String
+  expires_at DateTime
+  consumed   Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  @@index([identifier, type, created_at])
+}
+
+enum RechargeStatus {
+  pending
+  paid
+  failed
+  expired
+}
+
+model RechargeOrder {
+  id              String         @id @default(cuid())
+  /// 我们生成的订单号，发给虎皮椒做 trade_order_id
+  order_no        String         @unique
+  user_id         String
+  /// 充值包标识：basic / business / factory
+  pack            String
+  /// 实际付款金额（元，保留 2 位小数）
+  amount_yuan     Decimal        @db.Decimal(10, 2)
+  /// 充值后增加的额度数（张）
+  credits         Int
+  /// 渠道：wechat / alipay
+  channel         String?
+  status          RechargeStatus @default(pending)
+  /// 虎皮椒侧返回的支付链接
+  pay_url         String?
+  /// 虎皮椒侧的交易号（回调时填）
+  xunhupay_trade_no String?
+  /// 回调原始 payload，便于排查
+  callback_raw    Json?
+  paid_at         DateTime?
+  created_at      DateTime       @default(now())
+  updated_at      DateTime       @updatedAt
+
+  /// Per-account create identity. Null preserves historical orders.
+  request_key           String?
+  request_hash          String?
+  display_mode          String?
+  provider_appid        String?
+  provider_gateway      String?
+  provider_order_id     String?
+  /// Hash of merchant/gateway/provider transaction identity, never a credential.
+  provider_payment_key  String? @unique
+  qr_code_url           String?
+  expires_at            DateTime?
+  creation_state        String @default("legacy")
+  provider_query_at     DateTime?
+  provider_query_status String?
+  /// One order points to exactly one committed credit ledger entry.
+  credit_transaction_id String? @unique
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  credit_transaction CreditTransaction? @relation("RechargeCredit", fields: [credit_transaction_id], references: [id], onDelete: Restrict)
+
+  @@unique([user_id, request_key])
+  @@index([user_id, created_at])
+  @@index([status, created_at])
+}
+
+
+/// 外部 AI 工具调用日志（识图 / 提示词规划 / 生图）。便于后台排查成功率、耗时、失败原因。
+model ToolCallLog {
+  id          String   @id @default(cuid())
+  /// 调用类型：lamp_profile / prompt_planner / nano-banana / gpt-image-2
+  tool        String
+  /// 实际使用的模型名（如 gpt-5.5 / gemini-3.1-flash-image）
+  model       String?
+  /// 关联的生成任务（生图时有；识图/规划时可能为空）
+  job_id      String?
+  /// 关联的上传素材（识图时有）
+  asset_id    String?
+  /// ok / failed
+  status      String
+  /// 外部 API 的 HTTP 状态码
+  http_status Int?
+  /// 调用耗时（毫秒）
+  duration_ms Int?
+  /// 失败原因（截断保存）
+  error       String?
+  /// planner 成功时存的完整 PromptPlan JSON（用于后台查阅），失败时为 null
+  result_json String?
+  created_at  DateTime @default(now())
+
+  @@index([created_at])
+  @@index([tool, created_at])
+  @@index([status, created_at])
+}
+
+/// Private video uploads. Objects are never served through the public image bucket URL.
+model VideoAsset {
+  id          String   @id @default(cuid())
+  user_id     String
+  storage_key String   @unique
+  mime        String
+  size_bytes  Int
+  status      String   @default("pending")
+  sha256      String?
+  created_at  DateTime @default(now())
+  user        User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  jobs        VideoJob[]
+  template_versions VideoTemplateVersion[]
+  @@index([user_id, created_at])
+  @@index([user_id, sha256])
+}
+
+/// Durable queue: updateMany compare-and-swap claims + lease heartbeats.
+model VideoJob {
+  id               String    @id @default(cuid())
+  user_id          String
+  source_asset_id  String
+  template_version_id String?
+  product_asset_id String
+  title            String
+  instructions     String    @default("")
+  preserve_audio   Boolean   @default(true)
+  status           String    @default("draft")
+  phase            String    @default("prepare")
+  stage            String    @default("等待准备参考图")
+  data             Json
+  error            String?
+  lease_owner      String?
+  lease_until      DateTime?
+  revision         Int       @default(0)
+  created_at       DateTime  @default(now())
+  updated_at       DateTime  @updatedAt
+  user             User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  source_asset     VideoAsset @relation(fields: [source_asset_id], references: [id])
+  template_version VideoTemplateVersion? @relation("VideoJobTemplateVersion", fields: [template_version_id], references: [id], onDelete: Restrict)
+  template_sources VideoTemplateVersion[] @relation("VideoTemplateSourceJob")
+  character_bindings VideoJobCharacterBinding[]
+  feedback         VideoJobFeedback[]
+  @@index([user_id, created_at])
+  @@index([status, created_at])
+  @@index([template_version_id])
+}
+
+/// Account-private replication template. Its code is allocated under the User row lock.
+model VideoTemplate {
+  id                String   @id @default(cuid())
+  user_id           String
+  code              String
+  name              String
+  category          String   @default("")
+  archived          Boolean  @default(false)
+  latest_version_id String?
+  version_count     Int      @default(0)
+  source_asset_id   String
+  source_sha256     String
+  source_duration   Float
+  structure_signature String
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+  user              User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  versions          VideoTemplateVersion[]
+  feedback          VideoJobFeedback[]
+  @@unique([user_id, code])
+  @@index([user_id, archived, created_at, id])
+  @@index([user_id, source_sha256])
+}
+
+/// Immutable recipe and provenance. Source jobs are retained to keep their media reachable.
+model VideoTemplateVersion {
+  id                    String   @id @default(cuid())
+  template_id           String
+  version               Int
+  source_job_id         String
+  source_asset_id       String
+  source_sha256         String
+  output_sha256         String
+  workflow_profile      String
+  recipe_schema_version Int
+  create_payload        Json
+  structure_signature   String
+  created_at            DateTime @default(now())
+  template              VideoTemplate @relation(fields: [template_id], references: [id], onDelete: Restrict)
+  source_job            VideoJob @relation("VideoTemplateSourceJob", fields: [source_job_id], references: [id], onDelete: Restrict)
+  source_asset          VideoAsset @relation(fields: [source_asset_id], references: [id], onDelete: Restrict)
+  character_bindings VideoTemplateCharacterBinding[]
+  derived_jobs          VideoJob[] @relation("VideoJobTemplateVersion")
+  feedback              VideoJobFeedback[]
+  @@unique([template_id, version])
+  @@unique([source_job_id, output_sha256])
+  @@index([source_asset_id])
+}
+
+model VideoJobFeedback {
+  id                  String   @id @default(cuid())
+  user_id             String
+  job_id              String
+  output_sha256       String
+  decision            String
+  notes               String   @default("")
+  template_id         String?
+  template_version_id String?
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
+  user                User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  job                 VideoJob @relation(fields: [job_id], references: [id], onDelete: Restrict)
+  template            VideoTemplate? @relation(fields: [template_id], references: [id], onDelete: Restrict)
+  template_version    VideoTemplateVersion? @relation(fields: [template_version_id], references: [id], onDelete: Restrict)
+  @@unique([job_id, output_sha256])
+  @@index([user_id, created_at])
+}
+
+model VideoWorker {
+  id           String   @id
+  heartbeat_at DateTime @default(now())
+  image_ready  Boolean  @default(false)
+  video_ready  Boolean  @default(false)
+  sixref_ready Boolean  @default(false)
+  detail       String?
+}
+
+/// Stable provider account identity, independent of a rotating API key.
+/// Every permit state change updates this row inside a transaction to serialize writers.
+model VideoPermitAccount {
+  id           String        @id
+  lock_version Int           @default(0)
+  permits      VideoPermit[]
+}
+
+/// One durable record per paid submission attempt. Released rows remain for audit and
+/// prevent accidentally reusing an attempt ID after a worker restart.
+model VideoPermit {
+  attempt_id     String   @id
+  account_id     String
+  job_id         String
+  segment_index  Int
+  reserved_coins Int?
+  max_coins      Int
+  status         String   @default("active")
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+  unknown_at     DateTime?
+  released_at    DateTime?
+  account        VideoPermitAccount @relation(fields: [account_id], references: [id], onDelete: Restrict)
+
+  @@index([account_id, status])
+  @@index([job_id, segment_index])
+}
+
+model ImageContent {
+  id String @id @default(cuid())
+  user_id String
+  sha256 String
+  storage_url String
+  mime String
+  size_bytes Int
+  width Int
+  height Int
+  created_at DateTime @default(now())
+  user User @relation(fields: [user_id], references: [id], onDelete: Restrict)
+  assets UploadedAsset[]
+  character_images CharacterVersionImage[]
+  @@unique([user_id, sha256])
+}
+model CharacterProfile {
+  id String @id @default(cuid())
+  user_id String
+  code String
+  name String
+  category String @default("")
+  archived Boolean @default(false)
+  latest_version_id String?
+  version_count Int @default(0)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  user User @relation(fields: [user_id], references: [id], onDelete: Restrict)
+  versions CharacterVersion[]
+  receipts CharacterSaveReceipt[]
+  @@unique([user_id, code])
+  @@index([user_id, archived, created_at, id])
+}
+model CharacterVersion {
+  id String @id @default(cuid())
+  character_id String
+  version Int
+  description String
+  content_digest String
+  created_at DateTime @default(now())
+  character CharacterProfile @relation(fields: [character_id], references: [id], onDelete: Restrict)
+  images CharacterVersionImage[]
+  receipts CharacterSaveReceipt[]
+  job_bindings VideoJobCharacterBinding[]
+  template_bindings VideoTemplateCharacterBinding[]
+  @@unique([character_id, version])
+  @@unique([character_id, content_digest])
+}
+model CharacterVersionImage {
+  version_id String
+  position Int
+  asset_id String
+  image_content_id String
+  label String
+  version CharacterVersion @relation(fields: [version_id], references: [id], onDelete: Restrict)
+  asset UploadedAsset @relation(fields: [asset_id], references: [id], onDelete: Restrict)
+  image_content ImageContent @relation(fields: [image_content_id], references: [id], onDelete: Restrict)
+  @@id([version_id, position])
+}
+model CharacterSaveReceipt {
+  user_id String
+  idempotency_key String
+  request_digest String
+  character_id String
+  version_id String
+  created_at DateTime @default(now())
+  user User @relation(fields: [user_id], references: [id], onDelete: Restrict)
+  character CharacterProfile @relation(fields: [character_id], references: [id], onDelete: Restrict)
+  version CharacterVersion @relation(fields: [version_id], references: [id], onDelete: Restrict)
+  @@id([user_id, idempotency_key])
+}
+model VideoJobCharacterBinding {
+  job_id String
+  segment_index Int
+  reference_index Int
+  character_version_id String
+  image_index Int
+  job VideoJob @relation(fields: [job_id], references: [id], onDelete: Restrict)
+  character_version CharacterVersion @relation(fields: [character_version_id], references: [id], onDelete: Restrict)
+  @@id([job_id, segment_index, reference_index])
+}
+model VideoTemplateCharacterBinding {
+  template_version_id String
+  segment_index Int
+  reference_index Int
+  character_version_id String
+  image_index Int
+  template_version VideoTemplateVersion @relation(fields: [template_version_id], references: [id], onDelete: Restrict)
+  character_version CharacterVersion @relation(fields: [character_version_id], references: [id], onDelete: Restrict)
+  @@id([template_version_id, segment_index, reference_index])
+}
+
+/// 自有 Agent 运行记录；所有调用从服务端 ActorContext 取得 user_id。
+model AgentThread {
+  id String @id
+  user_id String
+  created_at DateTime @default(now())
+  user User @relation(fields: [user_id], references: [id], onDelete: Restrict)
+  runs AgentRun[]
+  @@unique([id, user_id])
+  @@index([user_id, created_at])
+}
+
+model AgentRun {
+  id String @id
+  thread_id String
+  user_id String
+  client_request_id String
+  creation_digest String
+  plan_digest String
+  plan Json
+  limits Json
+  status String
+  revision Int @default(0)
+  fence Int @default(0)
+  lease_worker_id String?
+  lease_expires_at DateTime?
+  model_calls Int @default(0)
+  tool_calls Int @default(0)
+  thread AgentThread @relation(fields: [thread_id, user_id], references: [id, user_id], onDelete: Restrict)
+  turns AgentModelTurn[]
+  steps AgentStep[]
+  approvals AgentApproval[]
+  events AgentEvent[]
+  model_authorization AgentModelAuthorization?
+  model_attempts AgentModelAttempt[]
+  @@unique([user_id, thread_id, client_request_id])
+  @@unique([id, user_id])
+  @@index([status, lease_expires_at])
+}
+
+model AgentModelTurn {
+  id String @id
+  run_id String
+  turn_index Int
+  plan_digest String
+  status String
+  assistant_text String
+  calls Json
+  finish String?
+  run AgentRun @relation(fields: [run_id], references: [id], onDelete: Restrict)
+  steps AgentStep[]
+  model_attempt AgentModelAttempt?
+  @@unique([run_id, turn_index])
+  @@unique([id, run_id])
+}
+
+model AgentApproval {
+  id String @id
+  run_id String
+  user_id String
+  approval_index Int
+  revision Int @default(1)
+  plan_digest String
+  pricing_version String
+  allowed_tools Json
+  limits Json
+  expires_at DateTime
+  revoked_at DateTime?
+  run AgentRun @relation(fields: [run_id, user_id], references: [id, user_id], onDelete: Restrict)
+  steps AgentStep[]
+  reservations AgentReservation[]
+  image_jobs AgentImageJob[]
+  @@unique([run_id, approval_index])
+  @@unique([id, run_id, user_id])
+}
+
+model AgentStep {
+  attempt_id String @id
+  run_id String
+  user_id String
+  step_index Int
+  step_key String
+  model_turn_id String
+  tool_call_id String
+  tool_name String
+  plan_digest String
+  input_digest String
+  quote_digest String
+  input Json
+  quote Json
+  requires_approval Boolean
+  status String
+  approval_id String?
+  approval_revision Int?
+  submission_fence Int?
+  job_id String?
+  business_managed Boolean @default(false)
+  outcome Json?
+  run AgentRun @relation(fields: [run_id, user_id], references: [id, user_id], onDelete: Restrict)
+  turn AgentModelTurn @relation(fields: [model_turn_id, run_id], references: [id, run_id], onDelete: Restrict)
+  approval AgentApproval? @relation(fields: [approval_id, run_id, user_id], references: [id, run_id, user_id], onDelete: Restrict)
+  reservations AgentReservation[]
+  image_job AgentImageJob?
+  @@unique([run_id, step_key])
+  @@unique([run_id, attempt_id])
+  @@unique([run_id, attempt_id, user_id])
+  @@unique([run_id, step_index])
+}
+
+/// 授权上界占用，不是第二份业务账本；部分退款仅改变 released_amount。
+model AgentReservation {
+  run_id String
+  attempt_id String
+  unit String
+  user_id String
+  approval_id String?
+  reserved_amount BigInt
+  settled_amount BigInt?
+  released_amount BigInt @default(0)
+  status String
+  settlement_basis String?
+  step AgentStep @relation(fields: [run_id, attempt_id, user_id], references: [run_id, attempt_id, user_id], onDelete: Restrict)
+  approval AgentApproval? @relation(fields: [approval_id, run_id, user_id], references: [id, run_id, user_id], onDelete: Restrict)
+  slots AgentReservationSlot[]
+  image_jobs AgentImageJob[]
+  @@id([run_id, attempt_id, unit])
+}
+
+/// 每个子尝试有固定份额；终态证据只写一次，迟到的矛盾结果不能覆盖。
+model AgentReservationSlot {
+  run_id String
+  attempt_id String
+  unit String
+  slot_attempt_id String
+  allocated_amount BigInt
+  settled_amount BigInt @default(0)
+  released_amount BigInt @default(0)
+  status String
+  evidence_digest String?
+  evidence Json?
+  reservation AgentReservation @relation(fields: [run_id, attempt_id, unit], references: [run_id, attempt_id, unit], onDelete: Restrict)
+  image_slot AgentImageSlot?
+  @@id([run_id, attempt_id, unit, slot_attempt_id])
+  @@unique([slot_attempt_id, unit])
+}
+
+model AgentEvent {
+  run_id String
+  user_id String
+  event_seq Int
+  type String
+  run_status String
+  step_number Int?
+  step_status String?
+  run AgentRun @relation(fields: [run_id, user_id], references: [id, user_id], onDelete: Restrict)
+  @@id([run_id, event_seq])
+}
+
+/// 图片业务执行 sidecar；真实作品与账本仍属于 GenerationJob。
+model AgentImageJob {
+  job_id String @id
+  user_id String
+  run_id String
+  step_key String
+  core_attempt_id String @unique
+  reservation_unit String @default("image_credit")
+  approval_id String
+  approval_revision Int
+  plan_digest String
+  core_input_digest String
+  core_quote_digest String
+  input_digest String
+  quote_digest String
+  input Json
+  quote Json
+  reference_locations Json
+  idempotency_key String
+  status String @default("queued")
+  attention_code String?
+  charged_credits Int
+  refunded_credits Int @default(0)
+  billing_mode String
+  fence Int @default(0)
+  lease_worker_id String?
+  lease_expires_at DateTime?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  job GenerationJob @relation(fields: [job_id, user_id], references: [id, user_id], onDelete: Restrict)
+  step AgentStep @relation(fields: [run_id, core_attempt_id, user_id], references: [run_id, attempt_id, user_id], onDelete: Restrict)
+  approval AgentApproval @relation(fields: [approval_id, run_id, user_id], references: [id, run_id, user_id], onDelete: Restrict)
+  reservation AgentReservation @relation(fields: [run_id, core_attempt_id, reservation_unit], references: [run_id, attempt_id, unit], onDelete: Restrict)
+  slots AgentImageSlot[]
+  aliases AgentImageIdempotency[]
+  @@unique([run_id, step_key])
+  @@unique([job_id, user_id])
+  @@unique([job_id, run_id, core_attempt_id, user_id])
+  @@unique([run_id, core_attempt_id, user_id])
+  @@index([status, lease_expires_at])
+}
+
+/// 别名也占用 user 范围唯一键；同一步骤换 key 只绑定原业务 job。
+model AgentImageIdempotency {
+  user_id String
+  idempotency_key String
+  job_id String
+  job AgentImageJob @relation(fields: [job_id, user_id], references: [job_id, user_id], onDelete: Restrict)
+  @@id([user_id, idempotency_key])
+}
+
+model AgentImageSlot {
+  attempt_id String @id
+  job_id String
+  user_id String
+  run_id String
+  core_attempt_id String
+  reservation_unit String @default("image_credit")
+  output_index Int
+  quoted_credits Int
+  charged_credits Int
+  refunded_credits Int @default(0)
+  status String @default("queued")
+  submission_fence Int?
+  submission_at DateTime?
+  provider_task_id String?
+  code String?
+  absence_evidence Json?
+  settlement_reference String? @unique
+  output_id String? @unique
+  usage Json?
+  job AgentImageJob @relation(fields: [job_id, run_id, core_attempt_id, user_id], references: [job_id, run_id, core_attempt_id, user_id], onDelete: Restrict)
+  reservation_slot AgentReservationSlot @relation(fields: [run_id, core_attempt_id, reservation_unit, attempt_id], references: [run_id, attempt_id, unit, slot_attempt_id], onDelete: Restrict)
+  output OutputImage? @relation(fields: [output_id, job_id], references: [id, job_id], onDelete: Restrict)
+  artifact AgentImageArtifact?
+  @@unique([job_id, output_index])
+  @@unique([attempt_id, job_id, user_id, output_index])
+  @@unique([run_id, core_attempt_id, reservation_unit, attempt_id])
+  @@unique([output_id, job_id])
+}
+
+/// 只发布已完成不可变对象且可读回的凭据；不保存供应商 URL。
+model AgentImageArtifact {
+  id String @id
+  attempt_id String @unique
+  job_id String
+  user_id String
+  output_index Int
+  scope Json
+  sha256 String
+  mime String
+  size_bytes Int
+  storage_key String @unique
+  created_at DateTime @default(now())
+  slot AgentImageSlot @relation(fields: [attempt_id, job_id, user_id, output_index], references: [attempt_id, job_id, user_id, output_index], onDelete: Restrict)
+  @@unique([job_id, output_index])
+  @@unique([attempt_id, job_id, user_id, output_index])
+}
+
+/// 独立模型授权；每run仅一份，旧工具审批不能转换为本授权。
+model AgentModelAuthorization {
+  id String @id
+  run_id String @unique
+  user_id String
+  client_request_id String
+  request_digest String
+  expected_run_revision Int
+  plan_digest String
+  provider String
+  model String
+  policy_version String
+  max_requests Int
+  max_input_tokens BigInt
+  max_output_tokens BigInt
+  expires_at DateTime
+  revision Int @default(1)
+  revoked_at DateTime?
+  created_at DateTime @default(now())
+  run AgentRun @relation(fields: [run_id, user_id], references: [id, user_id], onDelete: Restrict)
+  attempts AgentModelAttempt[]
+  @@unique([run_id, user_id])
+  @@unique([id, run_id, user_id])
+  @@unique([user_id, client_request_id])
+}
+
+/// 本表不存原始模型请求；可能发送后保守保留token占用，非费用账本。
+model AgentModelAttempt {
+  id String @id
+  run_id String
+  user_id String
+  turn_id String @unique
+  authorization_id String
+  authorization_revision Int
+  attempt_index Int
+  plan_digest String
+  request_digest String
+  request_version String
+  identity_digest String
+  provider String
+  model String
+  policy_version String
+  action_identities Json
+  reserved_input_tokens BigInt
+  reserved_output_tokens BigInt
+  accounted_input_tokens BigInt
+  accounted_output_tokens BigInt
+  released_input_tokens BigInt @default(0)
+  released_output_tokens BigInt @default(0)
+  state String @default("prepared")
+  revision Int @default(1)
+  submission_id String? @unique
+  submission_worker_id String?
+  submission_fence Int?
+  submitted_at DateTime?
+  finalized_at DateTime?
+  usage_state String @default("none")
+  evidence_digest String?
+  evidence Json?
+  overage Boolean @default(false)
+  created_at DateTime @default(now())
+  run AgentRun @relation(fields: [run_id, user_id], references: [id, user_id], onDelete: Restrict)
+  turn AgentModelTurn @relation(fields: [turn_id, run_id], references: [id, run_id], onDelete: Restrict)
+  authorization AgentModelAuthorization @relation(fields: [authorization_id, run_id, user_id], references: [id, run_id, user_id], onDelete: Restrict)
+  @@unique([turn_id, run_id])
+  @@unique([authorization_id, attempt_index])
+  @@index([run_id, id])
+}

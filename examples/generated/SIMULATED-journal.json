@@ -1,0 +1,15 @@
+{
+  "backendId": "runninghub.ai-app.fixture-account.9000000000000000001.fixture-v1.legacy-outputs-v1.c88f5222a67af84d9be131bdaa0f6fe55f2d1e98595278114824382beab1515f",
+  "inputDigest": "da23e8b4406a956c9ca19def95aa81539cbd6b6f77bf2e67a531ea3c18e47346",
+  "state": "collected",
+  "taskId": "9000000000000000002",
+  "receipt": {
+    "key": "video-candidates/v1/aa5a61e2b6ed2c868da89e428440f06add7e589336b35f006dd6b3ba90609d1b.mp4",
+    "sha256": "80b128d68527ed056226fc4d1fa6d7f92249f84e72a6462c95dbcc53f85a1bd6",
+    "sizeBytes": 2708,
+    "duration": 4,
+    "width": 144,
+    "height": 256,
+    "identityDigest": "65e88692b1a61becf71230f653e66accc50c32608e6def40adec7942a2a644ba"
+  }
+}

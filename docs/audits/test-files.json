@@ -1,0 +1,31 @@
+{
+  "auditDate": "2026-10-20",
+  "base": "apps/web",
+  "execution": "static_read_only_not_run",
+  "nonPostgresTests": [
+    { "file": "scripts/tests/agent-video-backend-runninghub.test.ts", "group": "pure_fake", "requiresFfmpeg": false, "requiresDb": false },
+    { "file": "scripts/tests/agent-video-backend-registry.test.ts", "group": "pure_fake", "requiresFfmpeg": false, "requiresDb": false },
+    { "file": "scripts/tests/agent-video-runtime-state.test.ts", "group": "pure_fake", "requiresFfmpeg": false, "requiresDb": false },
+    { "file": "scripts/tests/agent-video-runtime-preparation.test.ts", "group": "pure_fake", "requiresFfmpeg": false, "requiresDb": false, "note": "Prisma module load via prisma-runtime; no DB connection" },
+    { "file": "scripts/tests/agent-video-runtime-collector.test.ts", "group": "fake_io_real_local_media", "requiresFfmpeg": true, "requiresFfprobe": true, "requiresDb": false }
+  ],
+  "relativeImportClosure": [
+    "lib/agent/approvals.ts", "lib/agent/business-preparer.ts", "lib/agent/contracts.ts", "lib/agent/events.ts", "lib/agent/policy.ts", "lib/agent/prisma-settlement.ts", "lib/agent/prisma-state.ts", "lib/agent/repository-base.ts", "lib/agent/repository.ts", "lib/agent/settlement.ts", "lib/agent/state-machine.ts",
+    "lib/characters/bindings.ts", "lib/characters/contracts.ts", "lib/image-models.ts", "lib/image-reference-contract.ts", "lib/jobs/image-contracts.ts", "lib/jobs/image-storage-port.ts",
+    "lib/video/backend-runtime/binding.ts", "lib/video/backend-runtime/collector.ts", "lib/video/backend-runtime/preparation.ts", "lib/video/backend-runtime/prisma-runtime.ts", "lib/video/backend-runtime/runner.ts", "lib/video/backend-runtime/transitions.ts",
+    "lib/video/backends/contracts.ts", "lib/video/backends/registry.ts", "lib/video/backends/runninghub-protocol.ts", "lib/video/backends/runninghub.ts",
+    "lib/video/candidate-quality.ts", "lib/video/media.ts", "lib/video/reference-inputs.ts", "lib/video/six-reference-plan.ts", "lib/video/template-contracts.ts", "lib/video/types.ts", "lib/video-calls/contract.ts",
+    "scripts/tests/agent-video-backend-registry.test.ts", "scripts/tests/agent-video-backend-runninghub.test.ts", "scripts/tests/agent-video-runtime-collector.test.ts", "scripts/tests/agent-video-runtime-preparation.test.ts", "scripts/tests/agent-video-runtime-state.test.ts"
+  ],
+  "externalModulesInClosure": ["@prisma/client", "sharp"],
+  "tooling": ["tsx", "node:test"],
+  "localMediaTools": ["ffmpeg", "ffprobe"],
+  "excluded": [
+    { "file": "scripts/tests/agent-video-runtime-postgres.test.ts", "reason": "Windows .exe embedded PostgreSQL helper; two PrismaClient and migrations" },
+    { "file": "scripts/tests/video-call-postgres.test.ts", "reason": "Windows-only gated separate single-call suite" }
+  ],
+  "optionalSeparateSingleCallTests": [
+    "scripts/tests/video-call-acceptance.test.ts", "scripts/tests/video-call-contract.test.ts", "scripts/tests/video-call-engine.test.ts", "scripts/tests/video-call-ledger.test.ts", "scripts/tests/video-call-motion.test.ts"
+  ],
+  "providerOutputEvidence": "none_in_Agent_W1_W2_reviewed_scope"
+}

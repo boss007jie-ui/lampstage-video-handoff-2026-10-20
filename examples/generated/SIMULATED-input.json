@@ -1,0 +1,13 @@
+{
+  "mode": "LOCAL_SIMULATION_ONLY",
+  "requirement": "用自造蓝色动作片和橙色参考图演示一次4秒视频阶段，再交给本地FFmpeg。",
+  "motion": {
+    "path": "assets/SIMULATED-motion.mp4",
+    "sha256": "977b6dfd6d91c4c7fe651b94e991c4d0b8549f7ac6ef1e81e4a75671020ab62d"
+  },
+  "reference": {
+    "path": "assets/SIMULATED-reference.ppm",
+    "sha256": "23624de1f301e5bd14328a879d629e2150d25dbd4dab1e8141250a21317e945f"
+  },
+  "duration": 4
+}

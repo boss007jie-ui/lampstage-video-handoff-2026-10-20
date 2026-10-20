@@ -1,0 +1,61 @@
+{
+  "classification": "CURRENT_BYTES_VS_HISTORICAL_MANIFEST_NOT_TEST_RERUN",
+  "checks": [
+    {
+      "path": "apps/web/lib/video/backend-runtime/binding.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/collector.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/preparation.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/preparer.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/prisma-runtime.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/README.md",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/runner.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/lib/video/backend-runtime/transitions.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-collector.test.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-postgres.test.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-preparation.test.ts",
+      "unchanged": true
+    },
+    {
+      "path": "apps/web/scripts/tests/agent-video-runtime-state.test.ts",
+      "unchanged": true
+    },
+    {
+      "path": "tasks/LAMP-AGENT-VIDEO-W2.md",
+      "unchanged": true
+    }
+  ],
+  "mismatches": 0,
+  "missingReferencedLogs": [
+    "w2-types.log"
+  ]
+}

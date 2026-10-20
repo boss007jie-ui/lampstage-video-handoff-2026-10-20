@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-20",
+  "platform": "Windows x64, not macOS",
+  "node": "22.20.0",
+  "npm": "11.19.1",
+  "ffmpeg": "ffmpeg version 8.1-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "tests": {
+    "command": "node scripts/run-tests.mjs all",
+    "files": 7,
+    "total": 80,
+    "pass": 80,
+    "fail": 0,
+    "skipped": 0,
+    "durationMs": 5431.2494
+  },
+  "protocolTypecheck": {
+    "command": "tsc -p tsconfig.protocol.json",
+    "exitCode": 0,
+    "scope": "4 Wave1 protocol files only"
+  },
+  "exampleFresh": {
+    "classification": "LOCAL_SIMULATION_NOT_PROVIDER_RESULT",
+    "counters": {
+      "submit": 1,
+      "query": 1,
+      "download": 1
+    },
+    "final": "examples/local-runs/final-acceptance/SIMULATED-final.mp4",
+    "media": {
+      "duration": 4,
+      "width": 720,
+      "height": 1280,
+      "hasAudio": true,
+      "videoCodec": "h264",
+      "audioCodec": "aac"
+    }
+  },
+  "exampleRecovery": {
+    "classification": "LOCAL_SIMULATION_NOT_PROVIDER_RESULT",
+    "counters": {
+      "submit": 0,
+      "query": 1,
+      "download": 0
+    },
+    "final": "examples/local-runs/final-acceptance/SIMULATED-final.mp4",
+    "media": {
+      "duration": 4,
+      "width": 720,
+      "height": 1280,
+      "hasAudio": true,
+      "videoCodec": "h264",
+      "audioCodec": "aac"
+    }
+  },
+  "dependencies": "existing original direct versions via excluded internal junction; minimal lock metadata generated only",
+  "cleanInstallTested": false,
+  "minimalLockFullInstalledGraphTested": false,
+  "macOSTested": false,
+  "postgresStarted": false,
+  "providerCalls": 0,
+  "desktopStarted": false,
+  "realWorkflowReproducible": false,
+  "productionAdapterDelivered": false,
+  "contractSamples": {
+    "exitCode": 0,
+    "syntheticResponseCases": 10,
+    "additionalScenarios": 3,
+    "scope": "separate documentation-contract assertions, not added to original 80"
+  }
+}
